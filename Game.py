@@ -1,4 +1,1 @@
-__author__ = 'Kymppi'
-asdasdasdas
-
-Höhöhöö!
+#Ryhma 2 Peli
