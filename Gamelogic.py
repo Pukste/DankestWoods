@@ -1,7 +1,5 @@
 __author__ = 'Kymppi'
 
-import Game
-
 #
 # Description
 #
