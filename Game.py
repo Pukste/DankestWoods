@@ -1,7 +1,7 @@
 #Ryhma 2 Peli
 
 import Gamelogic
-
+import mysql.connector
 #
 # Description
 #

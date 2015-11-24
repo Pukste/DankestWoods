@@ -1,1 +1,1 @@
-__author__ = 'Kymppi'
+import mysql.connector
