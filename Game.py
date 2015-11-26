@@ -100,7 +100,7 @@ while ending == 0:
                 print("Please input y or n.")
         else:
             if gamelogic.castle_entered == 1:
-                print("Once in the castle you find a room with a spell book. And an alchemist table.\nSeems like the wizard has carelessly left it open.\n\n\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
+                print("Once in the castle you find a room with a spell book and an alchemist table.\nSeems like the wizard has carelessly left it open.\n\n\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
             elif "Magic_Mushroom" and "Water" in Gamelogic.inventory:
                 answer = input("Do you want to make the Potion of Transformation?(y/n)")
                 if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
