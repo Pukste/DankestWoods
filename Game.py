@@ -8,7 +8,15 @@
 
 import Gamelogic
 import mysql.connector
+import getpass
 
+#
+# Creating connection to database.
+#
+host = input("Server: ")
+user = input("User: ")
+password = getpass.getpass("Password: ")
+db = Gamelogic.open_database(host, user, password)
 
 #
 #Mainloop
@@ -45,32 +53,39 @@ while ending == 0:
             print("The shaman senses you are not whole. ")
         else:
             print("You should find the herbs to make the potion and restore your memories at the hill")
-
-    # Special event 2: Fixing the boat
+    # Special event 2: Filling the water bottle
+    if location == (joki id) and "Water" not in Gamelogic.cmd_inventory:
+        print("Do you want to fill your water bottle?(y/n)")
+        answer = input()
+        if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
+            Gamelogic.fill(db, object)
+        else:
+            print("")
+    # Special event 3: Fixing the boat
     if location == (joki id) and Gamelogic.boat_fixed == 0:
         print("You require a boat to cross the river, but the on left on the shore has a hole in it.\nMaybe someone in the marketplace will have something to fix it.")
 
-    # Special event 3: Trading for the wooden tap
-    if location == (tavern ic) and Gamelogic.tap_accuired == 0:
+    # Special event 4: Trading for the wooden tap
+    if location == (tavern ic) and if "Wooden tap" in Gamelogic.inventory:
         print("There is a sign that says wooden taps for sale: Price 1 banana.")
-        if Gamelogic.hills_visited == 0:
+        if Gamelogic.hill_visited == 0:
             print("")
         else:
             print("There was a banana tree a the hills.")
 
-    # Special event 4: Entering the castle
+    # Special event 5: Entering the castle
     if location == (castle id) and Gamelogic.castle_entered == 0:
         print("There is a weird looking slot in the door.")
-        if "The Sword of All Things Right" in Gamelogic.inventory:
+        if "The Sword of All Things Right" in Gamelogic.cmd_inventory:
             print("Your sword looks like it might fit but strangely it doesn't.")
-        if "The Sword of All Things Left" in Gamelogic.inventory:
+        if "The Sword of All Things Left" in Gamelogic.cmd_inventory:
             print("Your sword seems to fit, do you want to insert it to the slot?")
         else:
             print("There must be something that fits into it.\nIt looks like a weird looking sword, but you have nothing like it with you.")
 
-    # Special event 5: Game ending and creation of the Potion of Transformation
+    # Special event 6: Game ending and creation of the Potion of Transformation
     if Gamelogic.castle_entered != 0:
-        if "Potion of Transformation" in Gamelogic.inventory:
+        if "Potion of Transformation" in Gamelogic.cmd_inventory:
             print("Do you want to pour the potion into the wizards wine bottle?(y/n)")
             answer = input()
             if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
@@ -101,10 +116,10 @@ while ending == 0:
         else:
             if gamelogic.castle_entered == 1:
                 print("Once in the castle you find a room with a spell book and an alchemist table.\nSeems like the wizard has carelessly left it open.\n\n\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
-            elif "Magic_Mushroom" and "Water" in Gamelogic.inventory:
+            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory:
                 answer = input("Do you want to make the Potion of Transformation?(y/n)")
                 if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                    Gamelogic.merge(Magic_Mushroom, Water)
+                    Gamelogic.merge(??)
                     print("Magic Mushroom removed from inventory\nWater removed from inventory\nPotion of Transformation added to inventory")
                 if answer in ['n', 'N', 'no', 'No', 'NO']:
                     print("")
@@ -126,11 +141,34 @@ while ending == 0:
         object = cmdlist[1]
     else:
         print("Please input one or two words only.")
+
     # Command: move
     if verb == "move":
         if object == "north" or verbi == "east" or verbi == "south" or verbi == "west":
-            if Gamelogic.command_move(db, location, object) == 0:
+            if Gamelogic.cmd_move(db, location, object) == 0:
             print("Can't go that way.")
+
+    # Command: Pick up
+    elif verb == "pick":
+        if object == "":
+            print("No item selected.")
+        else:
+            object_location = Gamelogic.object_location(db, object)
+            if object_location is None or object_location != location:
+                print(object, "not found.")
+            else:
+                Gamelogic.cmd_pick(db, object)
+                print(object, "picked up.")
+
+    # Command: drop
+    elif verb == "drop"
+        if object == "":
+            print("No item selected.")
+        elif Gamelogic.cmd_drop(db, object, location) == 0:
+            print(object, "can't be dropped.")
+        else:
+            print(object, "dropped.")
+
     # Command: end
     elif verb == "end":
         ending = 1
