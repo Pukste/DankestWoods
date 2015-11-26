@@ -159,7 +159,15 @@ while ending == 0:
             else:
                 Gamelogic.cmd_pick(db, object)
                 print(object, "picked up.")
-
+    # Command: inspect
+    elif verb == "inspect"
+        if object == "":
+            print("No item selected.")
+        elif:
+            if Gamelogic.inspect(db, object, location) == 0:
+                print("No item selected.")
+        else:
+            print()
     # Command: drop
     elif verb == "drop"
         if object == "":

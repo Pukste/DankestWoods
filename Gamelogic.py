@@ -187,11 +187,18 @@ def fill(db, object)
     cur.execute("update object set value 1 where id =(insert item id for water here)")
 
 #
-# Command: merge
+# Command: merge(unfinished)
 #
-def merge(db. description):
+def merge(db, description):
     cur = db.curser()
     cur.execute()
+
+#
+# Command: inspect
+#
+def inspect(db,description):
+    cur = db curser()
+    cur.execute("select...")
 
 #
 # Command: drop
