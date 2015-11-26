@@ -1,4 +1,4 @@
-#Ryhma 2 Peli
+#Ryhma 2 Game
 
 import Gamelogic
 import mysql.connector
