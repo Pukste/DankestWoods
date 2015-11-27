@@ -88,27 +88,30 @@ while ending == 0:
         if "Potion of Transformation" in Gamelogic.cmd_inventory:
             print("Do you want to pour the potion into the wizards wine bottle?(y/n)")
             answer = input()
-            if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
+            answer = answer.lower()
+            if answer in ['y', 'yes']:
                 print("You pour the potion into the wine bottle. A puff a green smoke erupts from the bottle.")
                 print("You hear footsteps in the distance. Do you want to hide?(y/n)")
                 answer1 = input()
-                if answer1 in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                answer = answer.lower()
+                if answer1 in ['y', 'yes']:
                     print("The wizard walks into the room, pours a drink and drinks it.\nA while passes and the wizard seems to feel ill.")
                     print("He doesn't know what is wrong and is helplessly trying\nto find answers in his spell book.\nBut it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
-                if answer1 in ['n', 'N', 'no', 'No', 'NO']:
+                elif answer1 in ['n', 'no']:
                     print("The wizard walks into the room instantly spotting you.\nAfter a short consideration he blasts you with some kind of weird arcane energy\nand you transform into solid rock.\nSeems like the wizard has a new statue.\nAfter a smug smile he pours a drink and drinks it.\nA while passes and the wizard seems to feel ill.")
                     print("He doesn't know what is wrong and is helplessly trying\nto find answers in his spell book.\nBut it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
                 else:
                     print("Please input y or n.")
-            if answer in ['n', 'N', 'no', 'No', 'NO']:
+            elif answer in ['n', 'no']:
                 print("You hear footsteps in the distance. Do you want to hide?(y/n)")
                 answer1 = input()
-                if answer1 in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                answer = answer.lower()
+                if answer1 in ['y', 'yes']:
                     print("The wizard walks in and after a short while drinks his wine and goes to bed.\nYou hide the whole night and once the wizard leaves\nyou slowly sneak out of the castle and go into hiding hoping the wizard doesn't find you.")
                     ending = 1
-                if answer1 in ['n', 'N', 'no', 'No', 'NO']:
+                elif answer1 in ['n', 'no']:
                     print("The wizard walks into the room instantly spotting you.\nAfter a short consideration he blasts you with some kind of weird arcane energy\nand you transform into solid rock.\nSeems like the wizard has a new statue.")
                     ending = 1
                 else:
