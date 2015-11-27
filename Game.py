@@ -50,7 +50,7 @@ while ending == 0:
     # Special event 1: Making and drinking the potion
     if location == (tähän tulee shamaanin paikka ID) and Gamelogic.potion_taken(db) == 0:
         if Gamelogic.shaman_met(db) == 0:
-            print("The shaman senses you are not whole. ")
+            print("The shaman senses you are not whole.\nHe wants you to bring him a pile of Suspicious Herbs.\nThey should restore your memory when brewed into a potion.")
         else:
             print("You should find the herbs to make the potion and restore your memories at the hill")
     # Special event 2: Filling the water bottle
