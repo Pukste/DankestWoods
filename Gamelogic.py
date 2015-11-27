@@ -190,14 +190,14 @@ def fill(db, object)
 # Command: merge(unfinished)
 #
 def merge(db, description):
-    cur = db.curser()
+    cur = db.cursor()
     cur.execute()
 
 #
 # Command: inspect
 #
 def inspect(db,description):
-    cur = db curser()
+    cur = db cursor()
     cur.execute("select...")
 
 #
