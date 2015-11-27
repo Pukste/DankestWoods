@@ -49,18 +49,18 @@ while ending == 0:
 
     # Special event 1: Making and drinking the potion
     if location == 4:
-        if "Suspicious Herbs" in Gamelogic.cmd_inventory():
+        if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
             print("Do you want to trade the herbs for the potion?(y/n)")
             answer = input()
             answer = answer.lower()
             if answer in ['y', 'yes']:
                 Gamelogic.create()
                 print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
-        if "Potion of Endless Memory" in Gamelogic.cmd_inventory():
+        if "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
 
-        if "Potion of Transformation" in Gamelogic.cmd_inventory():
+        if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
 
-        if "Potion of Transformation" and "Potion of Endless Memory" in Gamelogic.cmd_inventory():
+        if "Potion of Transformation" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
 
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
@@ -68,7 +68,7 @@ while ending == 0:
             else:
                 print("You should find the herbs to make the potion and restore your memories at the hill")
     # Special event 2: Filling the water bottle
-    if location == 7 and "Water" not in Gamelogic.cmd_inventory:
+    if location == 7 and "Water" not in Gamelogic.cmd_inventory(db):
         print("Do you want to fill your water bottle?(y/n)")
         answer = input()
         answer = answer.lower()
@@ -81,7 +81,7 @@ while ending == 0:
         print("You require a boat to cross the river, but the on left on the shore has a hole in it.\nMaybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
-    if location == 3 and "Banana" in Gamelogic.cmd_inventory():
+    if location == 3 and "Banana" in Gamelogic.cmd_inventory(db):
         print("Do you want to trade the banana for a wooden tap?(y/n)")
         answer = input()
         answer = answer.lower()
@@ -102,9 +102,9 @@ while ending == 0:
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.castle_entered == 0:
         print("There is a weird looking slot in the door.")
-        if "The Sword of All Things Right" in Gamelogic.cmd_inventory():
+        if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             print("Your sword looks like it might fit but strangely it doesn't.")
-        elif "The Sword of All Things Left" in Gamelogic.cmd_inventory():
+        elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
             print("Your sword seems to fit, do you want to insert it to the slot?(y/n)")
             answer = input()
             answer = answer.lower()
@@ -121,7 +121,7 @@ while ending == 0:
 
     # Special event 6: Game ending and creation of the Potion of Transformation
     if Gamelogic.castle_entered != 0:
-        if "Potion of Transformation" in Gamelogic.cmd_inventory():
+        if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Do you want to pour the potion into the wizards wine bottle?(y/n)")
             answer = input()
             answer = answer.lower()
@@ -161,7 +161,7 @@ while ending == 0:
                 answer = answer.lower()
                 if answer in ['y', 'yes']:
                     print("\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
-            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory():
+            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory(db):
                 answer = input("Do you want to make the Potion of Transformation?(y/n)")
                 answer = answer.lower()
                 if answer in ['y', 'yes']:
