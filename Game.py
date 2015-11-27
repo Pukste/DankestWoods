@@ -78,7 +78,7 @@ while ending == 0:
         print("There is a weird looking slot in the door.")
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory:
             print("Your sword looks like it might fit but strangely it doesn't.")
-        if "The Sword of All Things Left" in Gamelogic.cmd_inventory:
+        elif "The Sword of All Things Left" in Gamelogic.cmd_inventory:
             print("Your sword seems to fit, do you want to insert it to the slot?")
         else:
             print("There must be something that fits into it.\nIt looks like a weird looking sword, but you have nothing like it with you.")
@@ -122,14 +122,16 @@ while ending == 0:
             if Gamelogic.castle_entered == 1:
                 print("After walking a while in the castle you find a room with a spell book\nSeems like the wizard has carelessly left it open.")
                 answer = input("Read the book?(y)")
-                if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                answer = answer.lower()
+                if answer in ['y', 'yes']:
                     print("\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
             elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory:
                 answer = input("Do you want to make the Potion of Transformation?(y/n)")
-                if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                answer = answer.lower()
+                if answer in ['y', 'yes']:
                     Gamelogic.merge(??)
                     print("Magic Mushroom removed from inventory\nWater removed from inventory\nPotion of Transformation added to inventory")
-                if answer in ['n', 'N', 'no', 'No', 'NO']:
+                elif answer in ['n', 'no']:
                     print("")
                 else:
                     print("Please input y or n.")
