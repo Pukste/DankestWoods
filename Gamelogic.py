@@ -131,7 +131,7 @@ def entered_castle(db):
 def object_location(db, description):
     cur = db.cursor()
     cur.execute("select location from object where description = '" + description + "'")
-    if cur.rowcount == 0
+    if cur.rowcount == 0:
         return None
     return (cur.fetchone())[0]
 

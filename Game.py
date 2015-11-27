@@ -48,25 +48,40 @@ while ending == 0:
         print("Items in the area:, items")
 
     # Special event 1: Making and drinking the potion
-    if location == (tähän tulee shamaanin paikka ID) and Gamelogic.potion_taken(db) == 0:
-        if Gamelogic.shaman_met(db) == 0:
-            print("The shaman senses you are not whole.\nHe wants you to bring him a pile of Suspicious Herbs.\nThey should restore your memory when brewed into a potion.")
-        else:
-            print("You should find the herbs to make the potion and restore your memories at the hill")
+    if location == 4:
+        if "Suspicious Herbs" in Gamelogic.cmd_inventory():
+            print("Do you want to trade the herbs for the potion?(y/n)")
+            answer = input()
+            answer = answer.lower()
+            if answer in ['y', 'yes']:
+                Gamelogic.create()
+                print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
+        if "Potion of Endless Memory" in Gamelogic.cmd_inventory():
+
+        if "Potion of Transformation" in Gamelogic.cmd_inventory():
+
+        if "Potion of Transformation" and "Potion of Endless Memory" in Gamelogic.cmd_inventory():
+
+        if Gamelogic.potion_taken(db) == 0:
+            if Gamelogic.shaman_met(db) == 0:
+                print("The shaman senses you are not whole.\nHe wants you to bring him a pile of Suspicious Herbs.\nThey should restore your memory when brewed into a potion.")
+            else:
+                print("You should find the herbs to make the potion and restore your memories at the hill")
     # Special event 2: Filling the water bottle
-    if location == (joki id) and "Water" not in Gamelogic.cmd_inventory:
+    if location == 7 and "Water" not in Gamelogic.cmd_inventory:
         print("Do you want to fill your water bottle?(y/n)")
         answer = input()
-        if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
+        answer = answer.lower()
+        if answer in ['y', 'yes']:
             Gamelogic.fill(db, object)
         else:
             print("")
     # Special event 3: Fixing the boat
-    if location == (joki id) and Gamelogic.boat_fixed == 0:
+    if location == 7 and Gamelogic.boat_fixed == 0:
         print("You require a boat to cross the river, but the on left on the shore has a hole in it.\nMaybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
-    if location == (tavern id) and if "Banana" in Gamelogic.cmd_inventory:
+    if location == 3 and "Banana" in Gamelogic.cmd_inventory():
         print("Do you want to trade the banana for a wooden tap?(y/n)")
         answer = input()
         answer = answer.lower()
@@ -77,9 +92,7 @@ while ending == 0:
             print("")
         else:
             print("Please input y or n.")
-
-
-    else:
+    elif location == 3:
         print("There is a sign that says wooden taps for sale: Price 1 banana.")
         if Gamelogic.hill_visited == 0:
             print("")
@@ -87,17 +100,17 @@ while ending == 0:
             print("There was a banana tree a the hills.")
 
     # Special event 5: Entering the castle
-    if location == (castle id) and Gamelogic.castle_entered == 0:
+    if location == 8 and Gamelogic.castle_entered == 0:
         print("There is a weird looking slot in the door.")
-        if "The Sword of All Things Right" in Gamelogic.cmd_inventory:
+        if "The Sword of All Things Right" in Gamelogic.cmd_inventory():
             print("Your sword looks like it might fit but strangely it doesn't.")
-        elif "The Sword of All Things Left" in Gamelogic.cmd_inventory:
+        elif "The Sword of All Things Left" in Gamelogic.cmd_inventory():
             print("Your sword seems to fit, do you want to insert it to the slot?(y/n)")
             answer = input()
             answer = answer.lower()
             if answer in ['y', 'yes']:
-                Gamelogic.open_direction(db, 5, 6, "south")
-                Gamelogic.open_direction(db, 6, 5, "north")
+                Gamelogic.open_direction(db, 8, 10, "south")
+                Gamelogic.open_direction(db, 10, 8, "north")
                 print("")
             elif answer in ['n', 'no']:
                 print("")
@@ -108,7 +121,7 @@ while ending == 0:
 
     # Special event 6: Game ending and creation of the Potion of Transformation
     if Gamelogic.castle_entered != 0:
-        if "Potion of Transformation" in Gamelogic.cmd_inventory:
+        if "Potion of Transformation" in Gamelogic.cmd_inventory():
             print("Do you want to pour the potion into the wizards wine bottle?(y/n)")
             answer = input()
             answer = answer.lower()
@@ -148,7 +161,7 @@ while ending == 0:
                 answer = answer.lower()
                 if answer in ['y', 'yes']:
                     print("\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
-            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory:
+            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory():
                 answer = input("Do you want to make the Potion of Transformation?(y/n)")
                 answer = answer.lower()
                 if answer in ['y', 'yes']:
