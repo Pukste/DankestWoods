@@ -43,7 +43,7 @@ def direction(db, id):
 #
 def items(db, id):
     cur = db.cursor()
-    cur.execute("select description from itemdb where location = " + str(id))
+    cur.execute("select description from object where location = " + str(id))
     items = []
     result = cur.fetchall()
     for row in result:

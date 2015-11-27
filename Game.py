@@ -107,8 +107,10 @@ while ending == 0:
                 answer1 = input()
                 if answer1 in ['y', 'Y', 'yes', 'Yes', 'YES']:
                     print("The wizard walks in and after a short while drinks his wine and goes to bed.\nYou hide the whole night and once the wizard leaves\nyou slowly sneak out of the castle and go into hiding hoping the wizard doesn't find you.")
+                    ending = 1
                 if answer1 in ['n', 'N', 'no', 'No', 'NO']:
                     print("The wizard walks into the room instantly spotting you.\nAfter a short consideration he blasts you with some kind of weird arcane energy\nand you transform into solid rock.\nSeems like the wizard has a new statue.")
+                    ending = 1
                 else:
                     print("Please input y or n.")
             else:
