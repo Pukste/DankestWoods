@@ -63,10 +63,23 @@ while ending == 0:
             print("")
     # Special event 3: Fixing the boat
     if location == (joki id) and Gamelogic.boat_fixed == 0:
-        print("You require a boat to cross the river, but the on left on the shore has a hole in it.\nMaybe someone in the marketplace will have something to fix it.")
+        print("You require a boat to cross the river, but the on left on the shore has a hole in it.\nMaybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
-    if location == (tavern ic) and if "Wooden tap" in Gamelogic.inventory:
+    if location == (tavern id) and if "Banana" in Gamelogic.cmd_inventory:
+        print("Do you want to trade the banana for a wooden tap?(y/n)")
+        answer = input()
+        answer = answer.lower()
+        if answer in ['y', 'yes']:
+            Gamelogic.trade()
+            print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
+        elif answer in ['n', 'no']:
+            print("")
+        else:
+            print("Please input y or n.")
+
+
+    else:
         print("There is a sign that says wooden taps for sale: Price 1 banana.")
         if Gamelogic.hill_visited == 0:
             print("")
@@ -79,7 +92,17 @@ while ending == 0:
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory:
             print("Your sword looks like it might fit but strangely it doesn't.")
         elif "The Sword of All Things Left" in Gamelogic.cmd_inventory:
-            print("Your sword seems to fit, do you want to insert it to the slot?")
+            print("Your sword seems to fit, do you want to insert it to the slot?(y/n)")
+            answer = input()
+            answer = answer.lower()
+            if answer in ['y', 'yes']:
+                Gamelogic.open_direction(db, 5, 6, "south")
+                Gamelogic.open_direction(db, 6, 5, "north")
+                print("")
+            elif answer in ['n', 'no']:
+                print("")
+            else:
+                print("Please input y or n.")
         else:
             print("There must be something that fits into it.\nIt looks like a weird looking sword, but you have nothing like it with you.")
 
