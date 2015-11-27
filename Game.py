@@ -114,7 +114,7 @@ while ending == 0:
             else:
                 print("Please input y or n.")
         else:
-            if gamelogic.castle_entered == 1:
+            if Gamelogic.castle_entered == 1:
                 print("After walking a while in the castle you find a room with a spell book\nSeems like the wizard has carelessly left it open.")
                 answer = input("Read the book?(y)")
                 if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
@@ -147,7 +147,7 @@ while ending == 0:
 
     # Command: move
     if verb == "move":
-        if object == "north" or verbi == "east" or verbi == "south" or verbi == "west":
+        if object == "north" or verb == "east" or verb == "south" or verb == "west":
             if Gamelogic.cmd_move(db, location, object) == 0:
             print("Can't go that way.")
 
@@ -163,10 +163,10 @@ while ending == 0:
                 Gamelogic.cmd_pick(db, object)
                 print(object, "picked up.")
     # Command: inspect
-    elif verb == "inspect"
+    elif verb == "inspect":
         if object == "":
             print("No item selected.")
-        elif:
+        elif statement:
             if Gamelogic.inspect(db, object, location) == 0:
                 print("No item selected.")
         else:
