@@ -219,13 +219,13 @@ while ending == 0:
     cmd = input("> ")
     if cmd == "":
         continue
-    cmdlist = cmd.split()
+    cmd_list = cmd.split()
     if len(cmdlist) == 1:
-        verb = cmdlist[0]
+        verb = cmd_list[0]
         object = ""
-    elif len(cmdlist) == 2:
-        verb = cmdlist[0]
-        object = cmdlist[1]
+    elif len(cmd_list) == 2:
+        verb = cmd_list[0]
+        object = cmd_list[1]
     else:
         print("Please input one or two words only.")
 
