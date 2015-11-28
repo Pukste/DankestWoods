@@ -58,16 +58,54 @@ while ending == 0:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
-                Gamelogic.create()
+                Gamelogic.create(db)
                 print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
             else:
                 print("")
         if "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
-            print("")
+            print("Do you want to drink the Potion of Endless Memory?(y/n)")
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                    break
+                print("Please input y or n.")
+            if answer in ['y', 'yes']:
+                Gamelogic.drink(db)
+                print("Potion of Endless Memory removed from inventory.")
+            else:
+                print("")
         if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
-            print("")
+            print("Do you want to drink the Potion of Transformation?(y/n)")
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                    break
+                print("Please input y or n.")
+            if answer in ['y', 'yes']:
+                print("Potion of Transformation removed from inventory.")
+                print("You start feeling ill and pass out.\nYou wake up with feeling teRIBBITle.\nYou have no idea what is going on.\nRIBBIT!\nAnd then you realise, you've turned into a frog.\nRIBBIT!")
+                ending = 1
+            else:
+                print("")
         if "Potion of Transformation" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
-            print("")
+            print("Do you want to drink the Potion of Endless memory(a) or Potion of Transformation(b)?(a/b/neither)")
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'a' or 'b' or 'neither' or 'none' or 'n' or 'no':
+                    break
+                print("Please input a, b or neither.")
+            if answer == 'a':
+                Gamelogic.drink(db)
+                print("Potion of Endless Memory removed from inventory.")
+            elif answer == 'b':
+                print("Potion of Transformation removed from inventory.")
+                print("You start feeling ill and pass out.\nYou wake up with feeling teRIBBITle.\nYou have no idea what is going on.\nRIBBIT!\nAnd then you realise, you've turned into a frog.\nRIBBIT!")
+                ending = 1
+            else:
+                print("")
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
                 print(
@@ -89,25 +127,26 @@ while ending == 0:
             "You require a boat to cross the river, but the on left on the shore has a hole in it.\nMaybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
-    if location == 3 and "Banana" in Gamelogic.cmd_inventory(db):
-        print("Do you want to trade the banana for a wooden tap?(y/n)")
-        while True:
-            answer = input()
-            answer = answer.lower()
-            if answer == 'y' or 'n' or 'no' or 'yes':
-                break
-            print("Please input y or n.")
-        if answer in ['y', 'yes']:
-            Gamelogic.trade(db)
-            print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
+    if location == 3:
+        if "Banana" in Gamelogic.cmd_inventory(db):
+            print("Do you want to trade the banana for a wooden tap?(y/n)")
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                    break
+                print("Please input y or n.")
+            if answer in ['y', 'yes']:
+                Gamelogic.trade(db)
+                print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
+            else:
+                print("")
         else:
-            print("")
-    elif location == 3:
-        print("There is a sign that says wooden taps for sale: Price 1 banana.")
-        if Gamelogic.hill_visited == 0:
-            print("")
-        else:
-            print("There was a banana tree a the hills.")
+            print("There is a sign that says wooden taps for sale: Price 1 banana.")
+            if Gamelogic.hill_visited == 0:
+                print("")
+            else:
+                print("There was a banana tree a the hills.")
 
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.castle_entered == 0:
@@ -220,7 +259,7 @@ while ending == 0:
     if cmd == "":
         continue
     cmd_list = cmd.split()
-    if len(cmdlist) == 1:
+    if len(cmd_list) == 1:
         verb = cmd_list[0]
         object = ""
     elif len(cmd_list) == 2:
@@ -246,15 +285,25 @@ while ending == 0:
             else:
                 Gamelogic.cmd_pick(db, object)
                 print(object, "picked up.")
+
     # Command: inspect
     elif verb == "inspect":
         if object == "":
             print("No item selected.")
-        elif statement:
-            if Gamelogic.inspect(db, object, location) == 0:
-                print("No item selected.")
+        elif Gamelogic.inspect(db, object) == 0:
+                print("No such item.")
         else:
-            print("")
+            Gamelogic.inspect(db, object)
+    # Command: rotate
+    elif verb == "rotate":
+        if object == "sword":
+            Gamelogic.rotate(db)
+            print("Sword of All Things Right removed from inventory.")
+            print("Sword of All Things Left added to inventory")
+        else:
+            print("Can't be rotated.")
+        else:
+            Gamelogic.rotate(db, object)
     # Command: drop
     elif verb == "drop":
         if object == "":

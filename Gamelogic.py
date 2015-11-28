@@ -170,7 +170,7 @@ def cmd_move(db, location, direction):
     row = cur1.fetchone()
     if row[0] is None:
         return 0
-    new_location = str(rivi[0])
+    new_location = str(row[0])
     cur2 = db.cursor()
     cur2.execute("update character set location = " + new_location + " where id = 1")
     return 1
@@ -208,7 +208,7 @@ def fill(db):
 
 
 #
-# Command: merge(unfinished)
+# Function: merge(unfinished)
 #
 def create_potion(db):
     cur = db.cursor()
@@ -252,8 +252,26 @@ def trade(db):
 #
 # Function: trading with shaman
 #
-def create():
+def create(db):
     cur = db.cursor()
     cur.execute("update object set owner = NULL where item =??")
     cur2 = db.cursor()
+    cur2.execute("update object set owner = 1 where item =??")
+
+
+#
+# Function: drinking the potion of endless memory
+#
+def drink(db):
+    cur = db.cursor()
+    cur.execute("update object set owner = NULL where item =??")
+
+
+#
+# Command; rotate
+#
+def rotate(db):
+    cur = db.cursor()
+    cur.execute("update object set owner = NULL where item =??")
+    cur2 = db.cursort()
     cur2.execute("update object set owner = 1 where item =??")
