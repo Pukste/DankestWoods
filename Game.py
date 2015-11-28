@@ -7,8 +7,9 @@
 ###############################################################################
 
 import Gamelogic
-import mysql.connector
+# import mysql.connector
 import getpass
+import textwrap
 
 #
 # Creating connection to database.
@@ -17,6 +18,7 @@ host = input("Server: ")
 user = input("User: ")
 password = getpass.getpass("Password: ")
 db = Gamelogic.open_database(host, user, password)
+
 
 #
 # Mainloop
@@ -28,6 +30,13 @@ db = Gamelogic.open_database(host, user, password)
 # - reading and parsing user commands
 # - executing command
 #
+
+#
+# Creating a textwrap function
+#
+def wrap(text):
+    print(textwrap.fill(text, 80))
+
 
 ending = 0
 while ending == 0:
@@ -85,7 +94,10 @@ while ending == 0:
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
                 print("Potion of Transformation removed from inventory.")
-                print("You start feeling ill and pass out.\nYou wake up with feeling teRIBBITle.\nYou have no idea what is going on.\nRIBBIT!\nAnd then you realise, you've turned into a frog.\nRIBBIT!")
+                wrap(
+                    "You start feeling ill and pass out. You wake up with feeling teRIBBITle. "
+                    "You have no idea what is going on. RIBBIT!  And then you realise, you've turned "
+                    "into a frog. RIBBIT!")
                 ending = 1
             else:
                 print("")
@@ -102,14 +114,18 @@ while ending == 0:
                 print("Potion of Endless Memory removed from inventory.")
             elif answer == 'b':
                 print("Potion of Transformation removed from inventory.")
-                print("You start feeling ill and pass out.\nYou wake up with feeling teRIBBITle.\nYou have no idea what is going on.\nRIBBIT!\nAnd then you realise, you've turned into a frog.\nRIBBIT!")
+                wrap(
+                    "You start feeling ill and pass out. You wake up with feeling teRIBBITle. "
+                    "You have no idea what is going on. RIBBIT! And then you realise,"
+                    "you've turned into a frog. RIBBIT!")
                 ending = 1
             else:
                 print("")
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
-                print(
-                    "The shaman senses you are not whole.\nHe wants you to bring him a pile of Suspicious Herbs.\nThey should restore your memory when brewed into a potion.")
+                wrap(
+                    "The shaman senses you are not whole.  He wants you to bring him a pile of Suspicious Herbs. "
+                    "They should restore your memory when brewed into a potion.")
             else:
                 print("You should find the herbs to make the potion and restore your memories at the hill")
     # Special event 2: Filling the water bottle
@@ -123,8 +139,9 @@ while ending == 0:
             print("")
     # Special event 3: Fixing the boat
     if location == 7 and Gamelogic.boat_fixed == 0:
-        print(
-            "You require a boat to cross the river, but the on left on the shore has a hole in it.\nMaybe someone in the tavern will have something to fix it.")
+        wrap(
+            "You require a boat to cross the river, but the on left on the shore has a hole in it."
+            "Maybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
     if location == 3:
@@ -168,8 +185,8 @@ while ending == 0:
             else:
                 print("")
         else:
-            print(
-                "There must be something that fits into it.\nIt looks like a weird looking sword, but you have nothing like it with you.")
+            wrap("There must be something that fits into it.\nIt looks like a"
+                 "weird looking sword, but you have nothing like it with you.")
 
     # Special event 6: Game ending and creation of the Potion of Transformation
     if location == 10:
@@ -191,16 +208,18 @@ while ending == 0:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
-                    print(
-                        "The wizard walks into the room, pours a drink and drinks it.\nA while passes and the wizard seems to feel ill.")
-                    print(
-                        "He doesn't know what is wrong and is helplessly trying\nto find answers in his spell book.\nBut it is simply too late and he is suddenly transformed into a frog.")
+                    wrap("The wizard walks into the room, pours a drink and drinks it."
+                         " A while passes and the wizard seems to feel ill.")
+                    wrap("He doesn't know what is wrong and is helplessly trying to find answers in his spell book."
+                         "But it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
                 else:
-                    print(
-                        "The wizard walks into the room instantly spotting you.\nAfter a short consideration he blasts you with some kind of weird arcane energy\nand you transform into solid rock.\nSeems like the wizard has a new statue.\nAfter a smug smile he pours a drink and drinks it.\nA while passes and the wizard seems to feel ill.")
-                    print(
-                        "He doesn't know what is wrong and is helplessly trying\nto find answers in his spell book.\nBut it is simply too late and he is suddenly transformed into a frog.")
+                    wrap("The wizard walks into the room instantly spotting you. After a short consideration"
+                         "he blasts you with some kind of weird arcane energy and you transform into solid rock. "
+                         "Seems like the wizard has a new statue. After a smug smile he pours a drink and drinks it. "
+                         "A while passes and the wizard seems to feel ill."
+                         "He doesn't know what is wrong and is helplessly trying to find answers in his spell "
+                         "book. But it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
 
             else:
@@ -212,18 +231,22 @@ while ending == 0:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
-                    print(
-                        "The wizard walks in and after a short while drinks his wine and goes to bed.\nYou hide the whole night and once the wizard leaves\nyou slowly sneak out of the castle and go into hiding hoping the wizard doesn't find you.")
+                    wrap("The wizard walks in and after a short while drinks his wine and goes to bed."
+                         "You hide the whole night and once the wizard leaves you slowly sneak out of the castle"
+                         "and go into hiding hoping the wizard doesn't find you.")
                     ending = 1
                 else:
-                    print(
-                        "The wizard walks into the room instantly spotting you.\nAfter a short consideration he blasts you with some kind of weird arcane energy\nand you transform into solid rock.\nSeems like the wizard has a new statue.")
+                    wrap(
+                        "The wizard walks into the room instantly spotting you. After a short consideration he blasts"
+                        "you with some kind of weird arcane energy and you transform into solid rock. "
+                        "Seems like the wizard has a new statue.")
                     ending = 1
 
         else:
             if Gamelogic.castle_entered == 1:
                 print(
-                    "After walking a while in the castle you find a room with a spell book\nSeems like the wizard has carelessly left it open.")
+                    "After walking a while in the castle you find a room with a spell book."
+                    " Seems like the wizard has carelessly left it open.")
                 print("Read the book?(y/n)")
                 while True:
                     answer = input()
@@ -233,7 +256,11 @@ while ending == 0:
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
                     print(
-                        "\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
+                        "\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd"
+                        "water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till"
+                        " water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour "
+                        "the mixture into a bottle\n\nHmm.. Seems like everything but "
+                        "the mushroom and water is here.\nWonder if this would work.")
                 else:
                     print("")
             elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory(db):
@@ -246,8 +273,9 @@ while ending == 0:
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
                     Gamelogic.create_potion(db)
-                    print(
-                        "Magic Mushroom removed from inventory\nWater removed from inventory\nPotion of Transformation added to inventory")
+                    wrap(
+                        "Magic Mushroom removed from inventory\nWater removed from inventory\n"
+                        "Potion of Transformation added to inventory")
                 else:
                     print("")
 
@@ -291,7 +319,7 @@ while ending == 0:
         if object == "":
             print("No item selected.")
         elif Gamelogic.inspect(db, object) == 0:
-                print("No such item.")
+            print("No such item.")
         else:
             Gamelogic.inspect(db, object)
     # Command: rotate
