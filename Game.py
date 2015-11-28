@@ -51,17 +51,23 @@ while ending == 0:
     if location == 4:
         if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
             print("Do you want to trade the herbs for the potion?(y/n)")
-            answer = input()
-            answer = answer.lower()
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                     break
+                print("Please input y or n.")
             if answer in ['y', 'yes']:
                 Gamelogic.create()
                 print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
+            else:
+                print("")
         if "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
-
+            print("")
         if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
-
+            print("")
         if "Potion of Transformation" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
-
+            print("")
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
                 print("The shaman senses you are not whole.\nHe wants you to bring him a pile of Suspicious Herbs.\nThey should restore your memory when brewed into a potion.")
@@ -83,15 +89,17 @@ while ending == 0:
     # Special event 4: Trading for the wooden tap
     if location == 3 and "Banana" in Gamelogic.cmd_inventory(db):
         print("Do you want to trade the banana for a wooden tap?(y/n)")
-        answer = input()
-        answer = answer.lower()
-        if answer in ['y', 'yes']:
-            Gamelogic.trade()
-            print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
-        elif answer in ['n', 'no']:
-            print("")
-        else:
+        while True:
+            answer = input()
+            answer = answer.lower()
+            if answer == 'y' or 'n' or 'no' or 'yes':
+                break
             print("Please input y or n.")
+        if answer in ['y', 'yes']:
+            Gamelogic.trade(db)
+            print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
+        else:
+            print("")
     elif location == 3:
         print("There is a sign that says wooden taps for sale: Price 1 banana.")
         if Gamelogic.hill_visited == 0:
@@ -106,71 +114,93 @@ while ending == 0:
             print("Your sword looks like it might fit but strangely it doesn't.")
         elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
             print("Your sword seems to fit, do you want to insert it to the slot?(y/n)")
-            answer = input()
-            answer = answer.lower()
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                 break
+                print("Please input y or n.")
             if answer in ['y', 'yes']:
                 Gamelogic.open_direction(db, 8, 10, "south")
                 Gamelogic.open_direction(db, 10, 8, "north")
                 print("")
-            elif answer in ['n', 'no']:
-                print("")
             else:
-                print("Please input y or n.")
+                print("")
         else:
             print("There must be something that fits into it.\nIt looks like a weird looking sword, but you have nothing like it with you.")
 
     # Special event 6: Game ending and creation of the Potion of Transformation
-    if Gamelogic.castle_entered != 0:
+    if location == 10:
         if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Do you want to pour the potion into the wizards wine bottle?(y/n)")
-            answer = input()
-            answer = answer.lower()
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                    break
+                print("Please input y or n.")
             if answer in ['y', 'yes']:
                 print("You pour the potion into the wine bottle. A puff a green smoke erupts from the bottle.")
                 print("You hear footsteps in the distance. Do you want to hide?(y/n)")
-                answer1 = input()
-                answer = answer.lower()
+                while True:
+                    answer1 = input()
+                    answer1 = answer.lower()
+                    if answer1 == 'y' or 'n' or 'no' or 'yes':
+                        break
+                    print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
                     print("The wizard walks into the room, pours a drink and drinks it.\nA while passes and the wizard seems to feel ill.")
                     print("He doesn't know what is wrong and is helplessly trying\nto find answers in his spell book.\nBut it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
-                elif answer1 in ['n', 'no']:
+                else:
                     print("The wizard walks into the room instantly spotting you.\nAfter a short consideration he blasts you with some kind of weird arcane energy\nand you transform into solid rock.\nSeems like the wizard has a new statue.\nAfter a smug smile he pours a drink and drinks it.\nA while passes and the wizard seems to feel ill.")
                     print("He doesn't know what is wrong and is helplessly trying\nto find answers in his spell book.\nBut it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
-                else:
-                    print("Please input y or n.")
-            elif answer in ['n', 'no']:
+
+            else:
                 print("You hear footsteps in the distance. Do you want to hide?(y/n)")
-                answer1 = input()
-                answer = answer.lower()
+                while True:
+                    answer1 = input()
+                    answer1 = answer.lower()
+                    if answer1 == 'y' or 'n' or 'no' or 'yes':
+                        break
+                    print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
                     print("The wizard walks in and after a short while drinks his wine and goes to bed.\nYou hide the whole night and once the wizard leaves\nyou slowly sneak out of the castle and go into hiding hoping the wizard doesn't find you.")
                     ending = 1
-                elif answer1 in ['n', 'no']:
+                else:
                     print("The wizard walks into the room instantly spotting you.\nAfter a short consideration he blasts you with some kind of weird arcane energy\nand you transform into solid rock.\nSeems like the wizard has a new statue.")
                     ending = 1
-                else:
-                    print("Please input y or n.")
-            else:
-                print("Please input y or n.")
+
+
         else:
             if Gamelogic.castle_entered == 1:
                 print("After walking a while in the castle you find a room with a spell book\nSeems like the wizard has carelessly left it open.")
-                answer = input("Read the book?(y)")
-                answer = answer.lower()
+                print("Read the book?(y/n)")
+                while True:
+                    answer = input()
+                    answer = answer.lower()
+                    if answer == 'y' or 'n' or 'no' or 'yes':
+                        break
+                    print("Please input y or n.")
                 if answer in ['y', 'yes']:
                     print("\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour the mixture into a bottle\n\nHmm.. Seems like everything but the mushroom and water is here.\nWonder if this would work.")
-            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory(db):
-                answer = input("Do you want to make the Potion of Transformation?(y/n)")
-                answer = answer.lower()
-                if answer in ['y', 'yes']:
-                    Gamelogic.merge(??)
-                    print("Magic Mushroom removed from inventory\nWater removed from inventory\nPotion of Transformation added to inventory")
-                elif answer in ['n', 'no']:
-                    print("")
                 else:
+                    print("")
+            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory(db):
+                print("Do you want to make the Potion of Transformation?(y/n)")
+                while True:
+                    answer = input()
+                    answer = answer.lower()
+                    if answer == 'y' or 'n' or 'no' or 'yes':
+                        break
                     print("Please input y or n.")
+                if answer in ['y', 'yes']:
+                    Gamelogic.create_potion(db)
+                    print("Magic Mushroom removed from inventory\nWater removed from inventory\nPotion of Transformation added to inventory")
+                else:
+                    print("")
+
             else:
                 print("Need to find the Magic Mushroom and water to create the potion.")
     # Input and parsing
@@ -192,7 +222,7 @@ while ending == 0:
     if verb == "move":
         if object == "north" or verb == "east" or verb == "south" or verb == "west":
             if Gamelogic.cmd_move(db, location, object) == 0:
-            print("Can't go that way.")
+                print("Can't go that way.")
 
     # Command: Pick up
     elif verb == "pick":
@@ -213,9 +243,9 @@ while ending == 0:
             if Gamelogic.inspect(db, object, location) == 0:
                 print("No item selected.")
         else:
-            print()
+            print("")
     # Command: drop
-    elif verb == "drop"
+    elif verb == "drop":
         if object == "":
             print("No item selected.")
         elif Gamelogic.cmd_drop(db, object, location) == 0:

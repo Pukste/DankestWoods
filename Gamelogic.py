@@ -22,7 +22,7 @@ def location(db):
 def description(db, id):
     cur = db.cursor()
     cur.execute("select description from location where id = " + str(id))
-    return (cur.fetchone())[]
+    return (cur.fetchone())[0]
 
 #
 # Returns possible movement directions
@@ -43,7 +43,7 @@ def direction(db, id):
 #
 def items(db, id):
     cur = db.cursor()
-    cur.execute("select description from object where location = " + str(id))
+    cur.execute("select item from object where location = " + str(id))
     items = []
     result = cur.fetchall()
     for row in result:
@@ -53,7 +53,7 @@ def items(db, id):
 #
 # Returns info if potion has been taken
 #
-def potion_taken(db)
+def potion_taken(db):
     cur = db.cursor()
     cur.execute("select value from events where id = 1")
     return (cur.fetchone())[0]
@@ -128,9 +128,9 @@ def entered_castle(db):
 #
 # Returns the location of a given object
 #
-def object_location(db, description):
+def object_location(db, item):
     cur = db.cursor()
-    cur.execute("select location from object where description = '" + description + "'")
+    cur.execute("select location from object where item = '" + item + "'")
     if cur.rowcount == 0:
         return None
     return (cur.fetchone())[0]
@@ -154,25 +154,25 @@ def cmd_move(db, location, direction):
     if row[0] is None:
         return 0
     new_location = str(rivi[0])
-    cur2 = db cursor()
+    cur2 = db.cursor()
     cur2.execute("update character set location = " + new_location + " where id = 1")
     return 1
 
 #
 # Command: pick up
 #
-def cmd_pick(db, description):
+def cmd_pick(db, item):
     cur1 = db.cursor()
-    cur1.execute("update object set owner = 1 where description = '" + description + "'")
+    cur1.execute("update object set owner = 1 where item = '" + item + "'")
     cur2 = db.cursor()
-    cur2.execute("update object set location = NULL where description = '" + description + "'")
+    cur2.execute("update object set location = NULL where item = '" + item + "'")
 
 #
 # Command: inventory
 #
 def cmd_inventory(db):
     cur = db.cursor()
-    cur.execute("select description from object where owner = 1")
+    cur.execute("select item from object where owner = 1")
     inventory = []
     result = cur.fetchall()
     for row in result:
@@ -182,30 +182,51 @@ def cmd_inventory(db):
 #
 # Fills the water bottle.
 #
-def fill(db, object)
+def fill(db):
     cur = db.cursor()
-    cur.execute("update object set value 1 where id =(insert item id for water here)")
+    cur.execute("update object set owner = 1 where item =(insert item id for water here)")
 
 #
 # Command: merge(unfinished)
 #
-def merge(db, description):
+def create_potion(db):
     cur = db.cursor()
-    cur.execute()
+    cur.execute("update object set owner = 0 where item =(magic mushroom)")
+    cur2 = db.cursor()
+    cur2.execute("update object set owner = 0 where item =(water)")
+    cur3 = db.cursor()
+    cur3.execute("update object set owner = 1 where item =(potion of transformation)")
 
 #
 # Command: inspect
 #
-def inspect(db,description):
-    cur = db cursor()
-    cur.execute("select...")
+def inspect(db,item):
+    cur = db.cursor()
+    cur.execute("select description from object where item = '" + item + "'")
+    return cur.result
 
 #
 # Command: drop
 #
-def cmd_drop(db, description, location):
+def cmd_drop(db, item, location):
     cur1 = db.cursor()
-    cur1.execute("update object set location = " + str(location) + " where description = '" + description + "' and owner = 1")
+    cur1.execute("update object set location = " + str(location) + " where item = '" + item + "' and owner = 1")
     cur2 = db.cursor()
-    cur2.execute("update object set owner = NULL where description = '" + description + "' and owner = 1")
+    cur2.execute("update object set owner = NULL where description = '" + item + "' and owner = 1")
     return cur2.rowcount
+#
+# Function: trade
+#
+def trade(db):
+    cur = db.cursor()
+    cur.execute("update object set owner = NULL where item =??")
+    cur2 = db.cursor()
+    cur2.execute("update object set owner = 1 where item =??")
+#
+# Function: trading with shaman
+#
+def create():
+    cur = db.cursor()
+    cur.execute("update object set owner = NULL where item =??")
+    cur2 = db.cursor()
+    cur2.execute("update object set owner = 1 where item =??")
