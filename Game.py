@@ -283,7 +283,7 @@ while ending == 0:
                 print("Need to find the Magic Mushroom and water to create the potion.")
     # Input and parsing
     print("")
-    cmd = input("> ")
+    cmd = input("> ").lower()
     if cmd == "":
         continue
     cmd_list = cmd.split()
@@ -339,11 +339,24 @@ while ending == 0:
             print(object, "can't be dropped.")
         else:
             print(object, "dropped.")
+    # Command: help
+    elif verb == "help":
+        print("Commands:\nMove () North, South, East, West\n"
+              "Drop (item) Drops a specific item\nPick (item) Picks up an item\nInspect (item) Inspects an item\n"
+              "Rotate (item)\nEnd (ends the game)")
 
     # Command: end
     elif verb == "end":
-        ending = 1
-
+        while True:
+            answer = input()
+            answer = answer.lower()
+            if answer == 'y' or 'n' or 'no' or 'yes':
+                break
+            print("Please input y or n.")
+        if answer in ['y', 'yes']:
+            ending = 1
+        else:
+            print("")
     # Unknown command.
     else:
         print("Invalid command...")
