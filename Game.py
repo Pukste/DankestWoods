@@ -302,8 +302,7 @@ while ending == 0:
             print("Sword of All Things Left added to inventory")
         else:
             print("Can't be rotated.")
-        else:
-            Gamelogic.rotate(db, object)
+
     # Command: drop
     elif verb == "drop":
         if object == "":
