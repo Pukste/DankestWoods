@@ -348,12 +348,20 @@ while ending == 0:
     # Command: end
     elif verb == "end":
         while True:
-            answer = input()
+            answer = input("Are you sure you want to quit?(y/n)")
             answer = answer.lower()
             if answer == 'y' or 'n' or 'no' or 'yes':
                 break
             print("Please input y or n.")
         if answer in ['y', 'yes']:
+            while True:
+                answer = input("Do you want to save the game?(y/n)")
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                    break
+                print("Please input y or n.")
+            if answer in ['y', 'yes']:
+                db.commit()
             ending = 1
         else:
             print("")
