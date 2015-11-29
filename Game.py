@@ -27,16 +27,19 @@ db = Gamelogic.open_database(host, user, password)
 # - printing possible directions of movement
 # - printing items in the area
 # - printing special events
+# - game ending done by special event 6 with multiple choice ending.
 # - reading and parsing user commands
 # - executing command
 #
 
 #
-# Creating a textwrap function
+# Creating a textwrap function, it will automatically start a new line if the last word goes over 80 characters.
 #
 def wrap(text):
     print(textwrap.fill(text, 80))
-
+# Possible ASCII here if can be arsed.
+# Start message
+wrap("Starting text etc.. here(won't be in the loop, hence shown only once at the start of the game)")
 
 ending = 0
 while ending == 0:
