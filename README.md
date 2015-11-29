@@ -1,2 +1,2 @@
 # Dankest Woods
-A school project in form of a text adventure.
+A school project in the form of a text adventure.
