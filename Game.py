@@ -33,7 +33,8 @@ db = Gamelogic.open_database(host, user, password)
 #
 
 #
-# Creating a textwrap function, it will automatically start a new line if the last word goes over 80 characters.
+# Creating a textwrap as an alternative print function.
+# It will automatically start a new line if the last word goes over 80 characters.
 #
 def wrap(text):
     print(textwrap.fill(text, 80))
