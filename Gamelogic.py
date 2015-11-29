@@ -104,6 +104,9 @@ def boat_fixed(db):
 def fix_boat(db):
     cur = db.cursor()
     cur.execute("update events set value = 1 where id = 3")
+    cur2 = db.cursor()
+    cur2.execute("update object owner = NULL where item = ??")
+
 
 
 #
@@ -205,6 +208,8 @@ def cmd_inventory(db):
 def fill(db):
     cur = db.cursor()
     cur.execute("update object set owner = 1 where item =(insert item id for water here)")
+    cur2 = db.cursor()
+    cur2.execute("update object set owner = NULL where item =(empty water bottle)")
 
 
 #
@@ -212,9 +217,9 @@ def fill(db):
 #
 def create_potion(db):
     cur = db.cursor()
-    cur.execute("update object set owner = 0 where item =(magic mushroom)")
+    cur.execute("update object set owner = NULL where item =(magic mushroom)")
     cur2 = db.cursor()
-    cur2.execute("update object set owner = 0 where item =(water)")
+    cur2.execute("update object set owner = NULL where item =(water)")
     cur3 = db.cursor()
     cur3.execute("update object set owner = 1 where item =(potion of transformation)")
 
@@ -225,7 +230,8 @@ def create_potion(db):
 def inspect(db, item):
     cur = db.cursor()
     cur.execute("select description from object where item = '" + item + "'")
-    return cur.result
+    return (cur.fetchone())[0]
+
 
 
 #

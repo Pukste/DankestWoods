@@ -132,6 +132,7 @@ while ending == 0:
                 wrap(
                     "The shaman senses you are not whole.  He wants you to bring him a pile of Suspicious Herbs. "
                     "They should restore your memory when brewed into a potion.")
+                Gamelogic.meet_shaman(db)
             else:
                 print("You should find the herbs to make the potion and restore your memories at the hill")
     # Special event 2: Filling the water bottle
@@ -141,13 +142,32 @@ while ending == 0:
         answer = answer.lower()
         if answer in ['y', 'yes']:
             Gamelogic.fill(db)
+            print("Water added to your inventory.")
         else:
             print("")
+
+    # Updating database on hill visit
+    if location == 5 and Gamelogic.hill_visited(db) == 0:
+        Gamelogic.visited_hill(db)
+
     # Special event 3: Fixing the boat
-    if location == 7 and Gamelogic.boat_fixed == 0:
+    if location == 7 and Gamelogic.boat_fixed(db) == 0:
         wrap(
             "You require a boat to cross the river, but the on left on the shore has a hole in it."
             "Maybe someone in the tavern will have something to fix it.")
+        if "Wooden Tap" in Gamelogic.cmd_inventory(db):
+            print("Do you want to fix the boat?(y/n)")
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                    break
+                print("Please input y or n.")
+            if answer in ['y', 'yes']:
+                Gamelogic.fix_boat(db)
+                print("Boat fixed.\n1 Wooden Tap removed from inventory.")
+            else:
+                print("")
 
     # Special event 4: Trading for the wooden tap
     if location == 3:
@@ -166,13 +186,13 @@ while ending == 0:
                 print("")
         else:
             print("There is a sign that says wooden taps for sale: Price 1 banana.")
-            if Gamelogic.hill_visited == 0:
-                print("")
+            if Gamelogic.hill_visited(db) == 0:
+                print("Where on earth could you find a banana..")
             else:
                 print("There was a banana tree a the hills.")
 
     # Special event 5: Entering the castle
-    if location == 8 and Gamelogic.castle_entered == 0:
+    if location == 8 and Gamelogic.castle_entered(db) == 0:
         print("There is a weird looking slot in the door.")
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             print("Your sword looks like it might fit but strangely it doesn't.")
@@ -249,7 +269,7 @@ while ending == 0:
                     ending = 1
 
         else:
-            if Gamelogic.castle_entered == 1:
+            if Gamelogic.castle_entered(db) == 1:
                 print(
                     "After walking a while in the castle you find a room with a spell book."
                     " Seems like the wizard has carelessly left it open.")
