@@ -14,7 +14,7 @@ def open_database(hostname, user, password):
 #
 def location(db):
     cur = db.cursor()
-    cur.execute("select location from player where locationid = 1")
+    cur.execute("select locationid from player where locationid = 1")
     return (cur.fetchone())[0]
 
 
