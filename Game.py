@@ -8,7 +8,7 @@
 
 import Gamelogic
 # import mysql.connector
-import getpass
+# import getpass , not working in pycharm
 import textwrap
 
 #
@@ -16,8 +16,8 @@ import textwrap
 #
 host = input("Server: ")
 user = input("User: ")
-password = getpass.getpass("Password: ")
-db = Gamelogic.open_database(host, user, password)
+pswd = input("Password: ")
+db = Gamelogic.open_database(host, user, pswd)
 
 
 #
