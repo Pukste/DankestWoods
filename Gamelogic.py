@@ -14,7 +14,7 @@ def open_database(hostname, user, password):
 #
 def location(db):
     cur = db.cursor()
-    cur.execute("select location from character where id = 1")
+    cur.execute("select location from player where id = 1")
     return (cur.fetchone())[0]
 
 
@@ -47,7 +47,7 @@ def direction(db, id):
 #
 def items(db, id):
     cur = db.cursor()
-    cur.execute("select item from object where location = " + str(id))
+    cur.execute("select itemid from item where location = " + str(id))
     items = []
     result = cur.fetchall()
     for row in result:
@@ -105,8 +105,7 @@ def fix_boat(db):
     cur = db.cursor()
     cur.execute("update events set value = 1 where id = 3")
     cur2 = db.cursor()
-    cur2.execute("update object owner = NULL where item = ??")
-
+    cur2.execute("update item owner = NULL where itemid = ??")
 
 
 #
@@ -148,7 +147,7 @@ def entered_castle(db):
 #
 def object_location(db, item):
     cur = db.cursor()
-    cur.execute("select location from object where item = '" + item + "'")
+    cur.execute("select location from item where itemid = '" + item + "'")
     if cur.rowcount == 0:
         return None
     return (cur.fetchone())[0]
@@ -184,9 +183,9 @@ def cmd_move(db, location, direction):
 #
 def cmd_pick(db, item):
     cur1 = db.cursor()
-    cur1.execute("update object set owner = 1 where item = '" + item + "'")
+    cur1.execute("update item set owner = 1 where itemid = '" + item + "'")
     cur2 = db.cursor()
-    cur2.execute("update object set location = NULL where item = '" + item + "'")
+    cur2.execute("update item set location = NULL where itemid = '" + item + "'")
 
 
 #
@@ -194,7 +193,7 @@ def cmd_pick(db, item):
 #
 def cmd_inventory(db):
     cur = db.cursor()
-    cur.execute("select item from object where owner = 1")
+    cur.execute("select itemid from item where owner = 1")
     inventory = []
     result = cur.fetchall()
     for row in result:
@@ -207,9 +206,9 @@ def cmd_inventory(db):
 #
 def fill(db):
     cur = db.cursor()
-    cur.execute("update object set owner = 1 where item =(insert item id for water here)")
+    cur.execute("update item set owner = 1 where itemid =(insert item id for water here)")
     cur2 = db.cursor()
-    cur2.execute("update object set owner = NULL where item =(empty water bottle)")
+    cur2.execute("update item set owner = NULL where itemid =(empty water bottle)")
 
 
 #
@@ -217,11 +216,11 @@ def fill(db):
 #
 def create_potion(db):
     cur = db.cursor()
-    cur.execute("update object set owner = NULL where item =(magic mushroom)")
+    cur.execute("update item set owner = NULL where itemid =(magic mushroom)")
     cur2 = db.cursor()
-    cur2.execute("update object set owner = NULL where item =(water)")
+    cur2.execute("update item set owner = NULL where itemid =(water)")
     cur3 = db.cursor()
-    cur3.execute("update object set owner = 1 where item =(potion of transformation)")
+    cur3.execute("update item set owner = 1 where itemid =(potion of transformation)")
 
 
 #
@@ -229,19 +228,18 @@ def create_potion(db):
 #
 def inspect(db, item):
     cur = db.cursor()
-    cur.execute("select description from object where item = '" + item + "'")
+    cur.execute("select description from item where itemid = '" + item + "'")
     return (cur.fetchone())[0]
-
 
 
 #
 # Command: drop
 #
-def cmd_drop(db, item, location):
+def cmd_drop(db, itemdb, location):
     cur1 = db.cursor()
-    cur1.execute("update object set location = " + str(location) + " where item = '" + item + "' and owner = 1")
+    cur1.execute("update item set location = " + str(location) + " where itemid = '" + item + "' and owner = 1")
     cur2 = db.cursor()
-    cur2.execute("update object set owner = NULL where description = '" + item + "' and owner = 1")
+    cur2.execute("update item set owner = NULL where itemid = '" + item + "' and owner = 1")
     return cur2.rowcount
 
 
@@ -250,9 +248,9 @@ def cmd_drop(db, item, location):
 #
 def trade(db):
     cur = db.cursor()
-    cur.execute("update object set owner = NULL where item =??")
+    cur.execute("update item set owner = NULL where itemid =??")
     cur2 = db.cursor()
-    cur2.execute("update object set owner = 1 where item =??")
+    cur2.execute("update item set owner = 1 where itemid =??")
 
 
 #
@@ -260,9 +258,9 @@ def trade(db):
 #
 def create(db):
     cur = db.cursor()
-    cur.execute("update object set owner = NULL where item =??")
+    cur.execute("update item set owner = NULL where itemid =??")
     cur2 = db.cursor()
-    cur2.execute("update object set owner = 1 where item =??")
+    cur2.execute("update item set owner = 1 where itemid =??")
 
 
 #
@@ -270,7 +268,7 @@ def create(db):
 #
 def drink(db):
     cur = db.cursor()
-    cur.execute("update object set owner = NULL where item =??")
+    cur.execute("update item set owner = NULL where itemid =??")
 
 
 #
@@ -278,6 +276,6 @@ def drink(db):
 #
 def rotate(db):
     cur = db.cursor()
-    cur.execute("update object set owner = NULL where item =??")
+    cur.execute("update item set owner = NULL where itemid =??")
     cur2 = db.cursort()
-    cur2.execute("update object set owner = 1 where item =??")
+    cur2.execute("update item set owner = 1 where itemid =??")
