@@ -1,6 +1,6 @@
-drop database if exists gamebase;
-create database gamebase;
-use gamebase;
+drop database if exists game;
+create database game;
+use game;
 
 drop table if exists location;
 drop table if exists player;
