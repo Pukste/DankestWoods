@@ -6,7 +6,7 @@ import mysql.connector
 #
 def open_database(hostname, user, password):
     return mysql.connector.connect(
-        host=hostname, user=user, passwd=password, db="game", buffered=True)
+        host=hostname, user=user, passwd=password, db="peligame", buffered=True)
 
 
 #
@@ -174,7 +174,7 @@ def cmd_move(db, location, direction):
         return 0
     new_location = str(row[0])
     cur2 = db.cursor()
-    cur2.execute("update character set location = " + new_location + " where id = 1")
+    cur2.execute("update player set location = " + new_location + " where id = 1")
     return 1
 
 
