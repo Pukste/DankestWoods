@@ -1,6 +1,6 @@
-drop database if exists game;
-create database game;
-use game;
+drop database if exists gamebase;
+create database gamebase;
+use gamebase;
 
 drop table if exists location;
 drop table if exists player;
@@ -9,12 +9,13 @@ drop table if exists event;
 
 create table location(
 locationid int not null,
-description varchar(512),
-primary key (locationid)
+nimi varchar(100),
+description varchar(1024),
 north int null,
 south int null,
 west int null,
 east int null,
+primary key (locationid)
 );
 
 create table player(
@@ -40,10 +41,16 @@ value int,
 primary key (eventid)
 );
 
-insert into location values (1, "Woods",
-"You look around and there's nothing besides an ocean of trees to be seen.",
- 4, 5, 2, 6),
-insert into location values (2, "Tower",
-"You look around and there's nothing besides an ocean of trees to be seen.",
-null, null, 1, 3)
+insert into location values
+(1, "Woods", "You look around and there's naught but an ocean of trees to be seen.", 4, 5, 2, 6),
+(2, "Tower", "There's a tall wooden tower. Judging by the rickety sound it might be best to not climb it.", null, null, 1, 3),
+(3, "Tavern", "A homely tavern built next to a giant boulder. How delightful.", null, null, null, 2),
+(4, "Shaman's Hut", "A crooked crummy wooden hut with patches of hay covering holes in the roof in big blotches. The surroundings have a strange almost odorless fragrance floating around, due to a warm draft coming from deeper in the forest it is uncertain whether the scent is coming from inside the hut or from further ahead.", null, 1, null, null),
+(5, "Hill", "It's a wide field on a hill full of grass and flowers, it's the only area around with no tall trees on it. A castle can be seen in the distance.", 1, null, null, null),
+(6, "Woods 2", "The tall trees continue endlessly. There are peculiarly shaped plants growing alongside surfaced tree roots.", null, 7, null, 1),
+(7, "River", "It's a wide river, it doesn't look like you will be able to swim across it.", 6, null, null, null),
+(8, "Village", "Lots of small houses. It's a village, not exactly brimming with life, but it's something.", 7, null, null, 9),
+(9, "Marketplace", "A few stalls can be seen from the distance neatly lined up. Walking forward a peculiar sweet scent of grass and other plant life is in the air, there must be a ", null, null, 8, null),
+(10, "Castle", "It's a large castle, made of stone as castles tend to be.", 8, null, null, null);
+
 
