@@ -1,6 +1,6 @@
-drop database if exists pelisqlkanta;
-create database pelisqlkanta;
-use pelisqlkanta;
+drop database if exists game;
+create database game;
+use game;
 
 drop table if exists location;
 drop table if exists player;
@@ -10,11 +10,11 @@ drop table if exists event;
 create table location(
 locationid int not null,
 description varchar(512),
+primary key (locationid)
 north int null,
 south int null,
 west int null,
 east int null,
-primary key (locationid)
 );
 
 create table player(
@@ -39,4 +39,11 @@ eventid int not null,
 value int,
 primary key (eventid)
 );
+
+insert into location values (1, "Woods",
+"You look around and there's nothing besides an ocean of trees to be seen.",
+ 4, 5, 2, 6),
+insert into location values (2, "Tower",
+"You look around and there's nothing besides an ocean of trees to be seen.",
+null, null, 1, 3)
 
