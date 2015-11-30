@@ -162,7 +162,7 @@ def open_direction(db, leave, go, direction):
 
 
 #
-# Command: move (north, east, south, west)
+# Command: move (north, south, west, east)
 #
 # Returns 1 if movement complete, 0 if not
 #
