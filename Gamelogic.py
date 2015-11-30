@@ -6,7 +6,7 @@ import mysql.connector
 #
 def open_database(hostname, user, password):
     return mysql.connector.connect(
-        host=hostname, user=user, passwd=password, db="peligame", buffered=True)
+        host=hostname, user=user, passwd=password, db="game", buffered=True)
 
 
 #
