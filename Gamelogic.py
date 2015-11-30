@@ -14,7 +14,7 @@ def open_database(hostname, user, password):
 #
 def location(db):
     cur = db.cursor()
-    cur.execute("select locationid from player where locationid = 1")
+    cur.execute("select locationid from player where playerid = 1")
     return (cur.fetchone())[0]
 
 
@@ -60,7 +60,7 @@ def items(db, id):
 #
 def potion_taken(db):
     cur = db.cursor()
-    cur.execute("select value from events where id = 1")
+    cur.execute("select value from events where eventsid = 1")
     return (cur.fetchone())[0]
 
 
@@ -69,7 +69,7 @@ def potion_taken(db):
 #
 def take_potion(db):
     cur = db.cursor()
-    cur.execute("update events set value = 1 where id = 1")
+    cur.execute("update events set value = 1 where eventsid = 1")
 
 
 #
@@ -77,7 +77,7 @@ def take_potion(db):
 #
 def shaman_met(db):
     cur = db.cursor()
-    cur.execute("select value from events where id = 2")
+    cur.execute("select value from events where eventsid = 2")
     return (cur.fetchone())[0]
 
 
@@ -86,7 +86,7 @@ def shaman_met(db):
 #
 def meet_shaman(db):
     cur = db.cursor()
-    cur.execute("update events set value = 1 where id = 2")
+    cur.execute("update events set value = 1 where eventsid = 2")
 
 
 #
@@ -94,7 +94,7 @@ def meet_shaman(db):
 #
 def boat_fixed(db):
     cur = db.cursor()
-    cur.execute("select value from events where id = 3")
+    cur.execute("select value from events where eventsid = 3")
     return (cur.fetchone())[0]
 
 
@@ -103,7 +103,7 @@ def boat_fixed(db):
 #
 def fix_boat(db):
     cur = db.cursor()
-    cur.execute("update events set value = 1 where id = 3")
+    cur.execute("update events set value = 1 where eventsid = 3")
     cur2 = db.cursor()
     cur2.execute("update item playerid = NULL where itemid = ??")
 
@@ -113,7 +113,7 @@ def fix_boat(db):
 #
 def hill_visited(db):
     cur = db.cursor()
-    cur.execute("select value from events where id = 4")
+    cur.execute("select value from events where eventsid = 4")
     return (cur.fetchone())[0]
 
 
@@ -122,7 +122,7 @@ def hill_visited(db):
 #
 def visited_hill(db):
     cur = db.cursor()
-    cur.execute("update events set value = 1 where id = 4")
+    cur.execute("update events set value = 1 where eventsid = 4")
 
 
 #
@@ -130,7 +130,7 @@ def visited_hill(db):
 #
 def castle_entered(db):
     cur = db.cursor()
-    cur.execute("select value from events where id = 5")
+    cur.execute("select value from events where eventsid = 5")
     return (cur.fetchone())[0]
 
 
@@ -139,7 +139,7 @@ def castle_entered(db):
 #
 def entered_castle(db):
     cur = db.cursor()
-    cur.exevute("update events set value = value + 1 where id = 5")
+    cur.exevute("update events set value = value + 1 where eventsid = 5")
 
 
 #
@@ -174,7 +174,7 @@ def cmd_move(db, location, direction):
         return 0
     new_location = str(row[0])
     cur2 = db.cursor()
-    cur2.execute("update player set location = " + new_location + " where locationid = 1")
+    cur2.execute("update player set locationid = " + new_location + " where playerid = 1")
     return 1
 
 
