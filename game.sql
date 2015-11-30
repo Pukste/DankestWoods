@@ -9,7 +9,7 @@ drop table if exists event;
 
 create table location(
 locationid int not null,
-nimi varchar(100),
+name varchar(100),
 description varchar(1024),
 north int null,
 south int null,
