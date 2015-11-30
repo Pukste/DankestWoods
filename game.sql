@@ -9,42 +9,42 @@ drop table if exists event;
 
 create table location(
 locationid int not null,
-name varchar(100),
-description varchar(1024),
-north int null,
-south int null,
-west int null,
-east int null,
+name varchar(100) default null,
+description varchar(1024) default null,
+north int(11) default null,
+south int(11) default null,
+west int(11) default null,
+east int(11) default null,
 primary key (locationid)
 );
 
 create table player(
-playerid int,
-locationid int,
+playerid int(11) not null,
+locationid int(11) default null,
 primary key(playerid),
 foreign key (locationid) references location(locationid)
 );
 
 create table item(
-itemid int not null,
+itemid int(20) not null,
 name varchar(256) not null,
-locationid int,
-playerid int,
+locationid int(11) default null,
+playerid int(11) default null,
 primary key (itemid),
 foreign key (playerid) references player(playerid),
 foreign key (locationid) references location(locationid)
 );
 
 create table events(
-eventsid int not null,
-value int,
+eventsid int(11) not null,
+value int(11) default null,
 primary key (eventsid)
 );
 
 insert into location values
-(1, "Woods", "You look around and there's naught but an ocean of trees to be seen.", 4, 5, 2, 6),
+(1, "Woods", "You look around and there's naught but an ocean of trees to be seen.", 4, 5, 6, 2),
 (2, "Tower", "There's a tall wooden tower. Judging by the rickety sound it might be best to not climb it.", null, null, 1, 3),
-(3, "Tavern", "A homely tavern built next to a giant boulder. How delightful.", null, null, null, 2),
+(3, "Tavern", "A homely tavern built next to a giant boulder. How delightful.", null, null, 2, null),
 (4, "Shaman's Hut", "A crooked crummy wooden hut with patches of hay covering holes in the roof in big blotches. The surroundings have a strange almost odorless fragrance floating around, due to a warm draft coming from deeper in the forest it is uncertain whether the scent is coming from inside the hut or from further ahead.", null, 1, null, null),
 (5, "Hill", "It's a wide field on a hill full of grass and flowers, it's the only area around with no tall trees on it. A castle can be seen in the distance.", 1, null, null, null),
 (6, "Woods 2", "The tall trees continue endlessly. There are peculiarly shaped plants growing alongside surfaced tree roots.", null, 7, null, 1),
@@ -66,7 +66,8 @@ insert into item values
 (7, "Vial of Water", null, null),
 (8, "Banana", 5, null),
 (9, "Endless Memory", null, null),
-(10, "Potion of Transformation", null, null);
+(10, "Potion of Transformation", null, null),
+(11, "Water", null, null);
 
 insert into events value
 (1, null),

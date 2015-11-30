@@ -60,7 +60,7 @@ while ending == 0:
     # Print items in the area
     items = Gamelogic.items(db, location)
     if len(items) > 0:
-        print("Items in the area:, items")
+        print("Items in the area:", items)
 
     # Special event 1: Making and drinking the potion
     if location == 4:
@@ -325,7 +325,7 @@ while ending == 0:
 
     # Command: move
     if verb == "move":
-        if object == "north" or verb == "south" or verb == "west" or verb == "east":
+        if object == "north" or object == "south" or object == "west" or object == "east":
             if Gamelogic.cmd_move(db, location, object) == 0:
                 print("Can't go that way.")
 

@@ -147,7 +147,7 @@ def entered_castle(db):
 #
 def object_location(db, item):
     cur = db.cursor()
-    cur.execute("select location from item where itemid = '" + item + "'")
+    cur.execute("select locationid from item where itemid = '" + item + "'")
     if cur.rowcount == 0:
         return None
     return (cur.fetchone())[0]
@@ -193,7 +193,7 @@ def cmd_pick(db, item):
 #
 def cmd_inventory(db):
     cur = db.cursor()
-    cur.execute("select itemid from item where playerid = 1")
+    cur.execute("select name from item where playerid = 1")
     inventory = []
     result = cur.fetchall()
     for row in result:
@@ -206,9 +206,9 @@ def cmd_inventory(db):
 #
 def fill(db):
     cur = db.cursor()
-    cur.execute("update item set playerid = 1 where itemid =(insert item id for water here)")
+    cur.execute("update item set playerid = 1 where itemid = 11")
     cur2 = db.cursor()
-    cur2.execute("update item set playerid = NULL where itemid =(empty water bottle)")
+    cur2.execute("update item set playerid = NULL where itemid = 6")
 
 
 #
@@ -216,11 +216,11 @@ def fill(db):
 #
 def create_potion(db):
     cur = db.cursor()
-    cur.execute("update item set playerid = NULL where itemid =(magic mushroom)")
+    cur.execute("update item set playerid = NULL where itemid = 5")
     cur2 = db.cursor()
-    cur2.execute("update item set playerid = NULL where itemid =(water)")
+    cur2.execute("update item set playerid = NULL where itemid = 11")
     cur3 = db.cursor()
-    cur3.execute("update item set playerid = 1 where itemid =(potion of transformation)")
+    cur3.execute("update item set playerid = 1 where itemid = 10")
 
 
 #
@@ -235,7 +235,7 @@ def inspect(db, item):
 #
 # Command: drop
 #
-def cmd_drop(db, itemdb, location):
+def cmd_drop(db, item, location):
     cur1 = db.cursor()
     cur1.execute("update item set locationid = " + str(location) + " where itemid = '" + item + "' and playerid = 1")
     cur2 = db.cursor()
