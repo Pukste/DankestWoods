@@ -67,3 +67,10 @@ insert into item values
 (8, "Banana", 5, null),
 (9, "Endless Memory", null, null),
 (10, "Potion of Transformation", null, null);
+
+insert into events value
+(1, null),
+(2, null),
+(3, null),
+(4, null),
+(5, null);
