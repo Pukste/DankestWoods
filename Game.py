@@ -50,7 +50,7 @@ while ending == 0:
     # Get location and print area description
     location = Gamelogic.location(db)
     description = Gamelogic.description(db, location)
-    print("\n", description)
+    wrap(description)
 
     # Printing possible directions of movement
     direction = Gamelogic.direction(db, location)
@@ -135,6 +135,7 @@ while ending == 0:
                 Gamelogic.meet_shaman(db)
             else:
                 print("You should find the herbs to make the potion and restore your memories at the hill")
+
     # Special event 2: Filling the water bottle
     if location == 7 and "Water" not in Gamelogic.cmd_inventory(db):
         print("Do you want to fill your water bottle?(y/n)")
