@@ -325,7 +325,7 @@ while ending == 0:
 
     # Command: move
     if verb == "move":
-        if object == "north" or verb == "east" or verb == "south" or verb == "west":
+        if object == "north" or verb == "south" or verb == "west" or verb == "east":
             if Gamelogic.cmd_move(db, location, object) == 0:
                 print("Can't go that way.")
 
