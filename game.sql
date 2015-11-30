@@ -35,10 +35,10 @@ foreign key (playerid) references player(playerid),
 foreign key (locationid) references location(locationid)
 );
 
-create table event(
-eventid int not null,
+create table events(
+eventsid int not null,
 value int,
-primary key (eventid)
+primary key (eventsid)
 );
 
 insert into location values
@@ -53,4 +53,16 @@ insert into location values
 (9, "Marketplace", "A few stalls can be seen from the distance neatly lined up. Walking forward a peculiar sweet scent of grass and other plant life is in the air, there must be a ", null, null, 8, null),
 (10, "Castle", "It's a large castle, made of stone as castles tend to be.", 8, null, null, null);
 
+insert into player values
+(1, 1);
 
+insert into item values
+(1, "The Sword of All Things Right", 2, null),
+(2, "The Sword of All Things Left", null, null),
+(3, "Suspicious Herbs", 6, null),
+(4, "Wooden Tap", 3, null),
+(5, "Magic Mushroom", 9, null),
+(6, "Empty Vial", null, 1),
+(7, "Vial of Water", null, null),
+(8, "Banana", 5, null),
+(9, "Endless Memory", null, null);
