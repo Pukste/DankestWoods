@@ -10,6 +10,10 @@ drop table if exists event;
 create table location(
 locationid int not null,
 description varchar(512),
+north int null,
+south int null,
+west int null,
+east int null,
 primary key (locationid)
 );
 
