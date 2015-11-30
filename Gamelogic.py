@@ -14,7 +14,7 @@ def open_database(hostname, user, password):
 #
 def location(db):
     cur = db.cursor()
-    cur.execute("select location from player where id = 1")
+    cur.execute("select location from player where locationid = 1")
     return (cur.fetchone())[0]
 
 
@@ -23,7 +23,7 @@ def location(db):
 #
 def description(db, id):
     cur = db.cursor()
-    cur.execute("select description from location where id = " + str(id))
+    cur.execute("select description from location where locationid = " + str(id))
     return (cur.fetchone())[0]
 
 
@@ -32,7 +32,7 @@ def description(db, id):
 #
 def direction(db, id):
     cur = db.cursor()
-    cur.execute("select north, east, south, west from location where id = " + str(id))
+    cur.execute("select north, east, south, west from location where locationid = " + str(id))
     row = cur.fetchone()
     compass = ['north', 'east', 'south', 'west']
     directions = []
@@ -47,7 +47,7 @@ def direction(db, id):
 #
 def items(db, id):
     cur = db.cursor()
-    cur.execute("select itemid from item where location = " + str(id))
+    cur.execute("select itemid from item where locationid = " + str(id))
     items = []
     result = cur.fetchall()
     for row in result:
@@ -158,7 +158,7 @@ def object_location(db, item):
 #
 def open_direction(db, leave, go, direction):
     cur = db.cursor()
-    cur.execute("update location set " + direction + " = " + str(go) + " " + "where id = " + str(leave))
+    cur.execute("update location set " + direction + " = " + str(go) + " " + "where locationid = " + str(leave))
 
 
 #
@@ -168,13 +168,13 @@ def open_direction(db, leave, go, direction):
 #
 def cmd_move(db, location, direction):
     cur1 = db.cursor()
-    cur1.execute("select " + direction + " from location where id = " + str(location))
+    cur1.execute("select " + direction + " from location where locationid = " + str(location))
     row = cur1.fetchone()
     if row[0] is None:
         return 0
     new_location = str(row[0])
     cur2 = db.cursor()
-    cur2.execute("update player set location = " + new_location + " where id = 1")
+    cur2.execute("update player set location = " + new_location + " where locationid = 1")
     return 1
 
 
@@ -185,7 +185,7 @@ def cmd_pick(db, item):
     cur1 = db.cursor()
     cur1.execute("update item set owner = 1 where itemid = '" + item + "'")
     cur2 = db.cursor()
-    cur2.execute("update item set location = NULL where itemid = '" + item + "'")
+    cur2.execute("update item set locationid = NULL where itemid = '" + item + "'")
 
 
 #
@@ -237,7 +237,7 @@ def inspect(db, item):
 #
 def cmd_drop(db, itemdb, location):
     cur1 = db.cursor()
-    cur1.execute("update item set location = " + str(location) + " where itemid = '" + item + "' and owner = 1")
+    cur1.execute("update item set locationid = " + str(location) + " where itemid = '" + item + "' and owner = 1")
     cur2 = db.cursor()
     cur2.execute("update item set owner = NULL where itemid = '" + item + "' and owner = 1")
     return cur2.rowcount
