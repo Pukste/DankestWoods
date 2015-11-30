@@ -270,7 +270,7 @@ while ending == 0:
 
         else:
             if Gamelogic.castle_entered(db) == 1:
-                print(
+                wrap(
                     "After walking a while in the castle you find a room with a spell book."
                     " Seems like the wizard has carelessly left it open.")
                 print("Read the book?(y/n)")
@@ -348,6 +348,7 @@ while ending == 0:
             print("No such item.")
         else:
             Gamelogic.inspect(db, object)
+
     # Command: rotate
     elif verb == "rotate":
         if object == "sword":
@@ -356,6 +357,10 @@ while ending == 0:
             print("Sword of All Things Left added to inventory")
         else:
             print("Can't be rotated.")
+
+    # Command: inventory (shows items on the player)
+    elif verb == "inventory":
+        print(Gamelogic.cmd_inventory(db))
 
     # Command: drop
     elif verb == "drop":
@@ -367,7 +372,7 @@ while ending == 0:
             print(object, "dropped.")
     # Command: help
     elif verb == "help":
-        print("Commands:\nMove () North, South, East, West\n"
+        print("Commands:\nMove () North, South, East, West\nInventory (shows items you have)\n"
               "Drop (item) Drops a specific item\nPick (item) Picks up an item\nInspect (item) Inspects an item\n"
               "Rotate (item)\nEnd (ends the game)")
 
