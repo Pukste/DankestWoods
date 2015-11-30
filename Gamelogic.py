@@ -176,7 +176,7 @@ def cmd_move(db, location, direction):
     cur2 = db.cursor()
     cur2.execute("update player set locationid = " + new_location + " where playerid = 1")
     return 1
-
+## apua
 
 #
 # Command: pick up
