@@ -28,6 +28,7 @@ foreign key (locationid) references location(locationid)
 create table item(
 itemid int(20) not null,
 name varchar(256) not null,
+description varchar(500),
 locationid int(11) default null,
 playerid int(11) default null,
 primary key (itemid),
@@ -57,21 +58,22 @@ insert into player values
 (1, 1);
 
 insert into item values
-(1, "The Sword of All Things Right", 2, null),
-(2, "The Sword of All Things Left", null, null),
-(3, "Suspicious Herbs", 6, null),
-(4, "Wooden Tap", 3, null),
-(5, "Magic Mushroom", 9, null),
-(6, "Empty Vial", null, 1),
-(7, "Vial of Water", null, null),
-(8, "Banana", 5, null),
-(9, "Potion of Endless Memory", null, null),
-(10, "Potion of Transformation", null, null),
-(11, "Water", null, null);
+(1, "The Sword of All Things Right","It's a piece of metal angled right with a hilt on it. Maybe there's a left facing model to be found nearby too.", 2, null),
+(2, "The Sword of All Things Left", "It's really just the same sword turned around. Way to go Einstein.", null, null),
+(3, "Suspicious Herbs", "A stack of pointy leaves.", 6, null),
+(4, "Wooden Tap", "It's a tap, it goes into holes tightly. Not to be used on living things.", 3, null),
+(5, "Magic Mushroom", "You feel nauseous even holding it. It would be an awful idea to try to make anything out of this, so don't.",9, null),
+(6, "Empty Vial","It's an empty glass vial. Things go in it.", null, 1),
+(7, "Vial of Water","It's a vial of water. Contained in the vial like logic would dictate.", null, null),
+(8, "Banana", "It's a banana, the king of fruits.", 5, null),
+(9, "Potion of Endless Memory", "Looks like swamp water, but it's not like deranged lunatics have ever lied to you before right?", null, null),
+(10, "Potion of Transformation", "And you just had to use the mushroom. For the love of god don't go drinking this.", null, null),
+(11, "Water", "It's water. Your container seems to have vanished so one can only wonder how you're carrying this.", null, null);
 
 insert into events value
 (1, 0),
 (2, 0),
 (3, 0),
 (4, 0),
-(5, 0);
+(5, 0),
+(6, 0);
