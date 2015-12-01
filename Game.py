@@ -153,9 +153,6 @@ while ending == 0:
 
     # Special event 3: Fixing the boat
     if location == 7 and Gamelogic.boat_fixed(db) == 0:
-        wrap(
-            "You require a boat to cross the river, but the on left on the shore has a hole in it."
-            "Maybe someone in the tavern will have something to fix it.")
         if "Wooden Tap" in Gamelogic.cmd_inventory(db):
             print("Do you want to fix the boat?(y/n)")
             while True:
@@ -169,6 +166,10 @@ while ending == 0:
                 print("Boat fixed.\n1 Wooden Tap removed from inventory.")
             else:
                 print("")
+        else:
+            wrap(
+                "You require a boat to cross the river, but the on left on the shore has a hole in it."
+                "Maybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
     if location == 3:
