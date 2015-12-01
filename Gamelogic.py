@@ -105,7 +105,7 @@ def fix_boat(db):
     cur = db.cursor()
     cur.execute("update events set value = 1 where eventsid = 3")
     cur2 = db.cursor()
-    cur2.execute("update item playerid = NULL where itemid = 4")
+    cur2.execute("update item set playerid = NULL where itemid = 4")
 
 
 #
