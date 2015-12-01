@@ -338,7 +338,9 @@ while ending == 0:
         verb = cmd_list[0]
         object = cmd_list[1]
     else:
-        print("Please input one or two words only.")
+        verb = cmd_list[0]
+        object = ' '.join(cmd_list[1:len(cmd_list)])
+        #print("Please input one or two words only.")
 
     # Command: move
     if verb == "move":
