@@ -70,7 +70,8 @@ def potion_taken(db):
 def take_potion(db):
     cur = db.cursor()
     cur.execute("update events set value = 1 where eventsid = 1")
-
+    cur2 = db.cursor()
+    cur2.execute("update item set playerid = NULL where itemid = 9")
 
 #
 # Checks if the shaman has been met
@@ -288,14 +289,6 @@ def create(db):
     cur.execute("update item set playerid = NULL where itemid = 3")
     cur2 = db.cursor()
     cur2.execute("update item set playerid = 1 where itemid = 9")
-
-
-#
-# Function: drinking the potion of endless memory
-#
-def drink(db):
-    cur = db.cursor()
-    cur.execute("update item set playerid = NULL where itemid = 9")
 
 
 #
