@@ -177,25 +177,28 @@ while ending == 0:
 
     # Special event 4: Trading for the wooden tap
     if location == 3:
-        if "Banana" in Gamelogic.cmd_inventory(db):
-            print("Do you want to trade the banana for a wooden tap?(y/n)")
-            while True:
-                answer = input()
-                answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
-                    break
-                print("Please input y or n.")
-            if answer in ['y', 'yes']:
-                Gamelogic.trade(db)
-                print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
+        if "Wooden Tao" in Gamelogic.cmd_inventory(ab):
+            if "Banana" in Gamelogic.cmd_inventory(db):
+                print("Do you want to trade the banana for a wooden tap?(y/n)")
+                while True:
+                    answer = input()
+                    answer = answer.lower()
+                    if answer == 'y' or 'n' or 'no' or 'yes':
+                        break
+                    print("Please input y or n.")
+                if answer in ['y', 'yes']:
+                    Gamelogic.trade(db)
+                    print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
+                else:
+                    print("")
             else:
-                print("")
+                print("There is a sign that says wooden taps for sale: Price 1 banana.")
+                if Gamelogic.hill_visited(db) == 0:
+                    print("Where on earth could you find a banana..")
+                else:
+                    print("There was a banana tree a the hills.")
         else:
-            print("There is a sign that says wooden taps for sale: Price 1 banana.")
-            if Gamelogic.hill_visited(db) == 0:
-                print("Where on earth could you find a banana..")
-            else:
-                print("There was a banana tree a the hills.")
+            print("")
 
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.door_opened(db) == 0:
@@ -325,6 +328,7 @@ while ending == 0:
                 print("Need to find the Magic Mushroom and water to create the potion.")
     if ending == 1:
         break
+
     # Input and parsing
     print("")
     cmd = input("> ").lower()
@@ -364,10 +368,11 @@ while ending == 0:
     elif verb == "inspect":
         if object == "":
             print("No item selected.")
-        elif Gamelogic.inspect(db, object) == 0:
-            print("No such item.")
         else:
-            Gamelogic.inspect(db, object)
+            if object in Gamelogic.cmd_inventory(db):
+                print(Gamelogic.inspect(db, object))
+            else:
+                print("No such item.")
 
     # Command: rotate
     elif verb == "rotate":

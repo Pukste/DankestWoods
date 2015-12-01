@@ -47,7 +47,7 @@ def direction(db, id):
 #
 def items(db, id):
     cur = db.cursor()
-    cur.execute("select itemid from item where locationid = " + str(id))
+    cur.execute("select name from item where locationid = " + str(id))
     items = []
     result = cur.fetchall()
     for row in result:
@@ -158,7 +158,7 @@ def entered_castle(db):
 #
 def object_location(db, item):
     cur = db.cursor()
-    cur.execute("select locationid from item where itemid = '" + item + "'")
+    cur.execute("select locationid from item where name = '" + item + "'")
     if cur.rowcount == 0:
         return None
     return (cur.fetchone())[0]
@@ -196,9 +196,9 @@ def cmd_move(db, location, direction):
 #
 def cmd_pick(db, item):
     cur1 = db.cursor()
-    cur1.execute("update item set playerid = 1 where itemid = '" + item + "'")
+    cur1.execute("update item set playerid = 1 where name = '" + item + "'")
     cur2 = db.cursor()
-    cur2.execute("update item set locationid = NULL where itemid = '" + item + "'")
+    cur2.execute("update item set locationid = NULL where name = '" + item + "'")
 
 
 #
@@ -241,7 +241,7 @@ def create_potion(db):
 #
 def inspect(db, item):
     cur = db.cursor()
-    cur.execute("select description from item where itemid = '" + item + "'")
+    cur.execute("select description from item where name = '" + item + "'")
     return (cur.fetchone())[0]
 
 
@@ -250,9 +250,9 @@ def inspect(db, item):
 #
 def cmd_drop(db, item, location):
     cur1 = db.cursor()
-    cur1.execute("update item set locationid = " + str(location) + " where itemid = '" + item + "' and playerid = 1")
+    cur1.execute("update item set locationid = " + str(location) + " where name = '" + item + "' and playerid = 1")
     cur2 = db.cursor()
-    cur2.execute("update item set playerid = NULL where itemid = '" + item + "' and playerid = 1")
+    cur2.execute("update item set playerid = NULL where name = '" + item + "' and playerid = 1")
     return cur2.rowcount
 
 
