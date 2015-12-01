@@ -132,7 +132,7 @@ while ending == 0:
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
                 wrap(
-                    "The shaman senses you are not whole.  He wants you to bring him a pile of Suspicious Herbs. "
+                    "The shaman senses you are not all there.  He wants you to bring him a pile of dank Suspicious Herbs. "
                     "They should restore your memory when brewed into a potion.")
                 Gamelogic.meet_shaman(db)
             else:
@@ -177,7 +177,7 @@ while ending == 0:
 
     # Special event 4: Trading for the wooden tap
     if location == 3:
-        if "Wooden Tao" in Gamelogic.cmd_inventory(ab):
+        if "Wooden Tap" in Gamelogic.cmd_inventory(db):
             if "Banana" in Gamelogic.cmd_inventory(db):
                 print("Do you want to trade the banana for a wooden tap?(y/n)")
                 while True:
