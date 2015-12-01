@@ -222,7 +222,7 @@ while ending == 0:
             if answer in ['y', 'yes']:
                 Gamelogic.open_direction(db, 8, 10, "south")
                 Gamelogic.open_direction(db, 10, 8, "north")
-                print("")
+                print("Door unlocked.")
             else:
                 print("")
         else:
@@ -322,6 +322,8 @@ while ending == 0:
 
             else:
                 print("Need to find the Magic Mushroom and water to create the potion.")
+    if ending == 1:
+        break
     # Input and parsing
     print("")
     cmd = input("> ").lower()
