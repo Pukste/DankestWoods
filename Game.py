@@ -20,6 +20,7 @@ pswd = input("Password: ")
 db = Gamelogic.open_database(host, user, pswd)
 
 
+# TESTI BRANCH
 #
 # Mainloop
 #
@@ -109,7 +110,8 @@ while ending == 0:
                 ending = 1
             else:
                 print("")
-        if "Potion of Transformation" in Gamelogic.cmd_inventory(db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
+        if "Potion of Transformation" in Gamelogic.cmd_inventory(
+                db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
             print("Do you want to drink the Potion of Endless memory(a) or Potion of Transformation(b)?(a/b/neither)")
             while True:
                 answer = input()
@@ -199,7 +201,6 @@ while ending == 0:
                     print("Where on earth could you find a banana..")
                 else:
                     print("There was a banana tree a the hills.")
-
 
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.door_opened(db) == 0:
@@ -345,7 +346,7 @@ while ending == 0:
     else:
         verb = cmd_list[0]
         object = ' '.join(cmd_list[1:len(cmd_list)])
-        #print("Please input one or two words only.")
+        # print("Please input one or two words only.")
 
     # Command: move
     if verb == "move":
