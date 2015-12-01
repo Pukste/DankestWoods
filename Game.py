@@ -369,8 +369,8 @@ while ending == 0:
         if object == "":
             print("No item selected.")
         else:
-            if object in Gamelogic.cmd_inventory(db):
-                print(Gamelogic.inspect(db, object))
+            if Gamelogic.inspect(db, object) is not None:
+                print(Gamelogic.inspect(db, object), "\n\n")
             else:
                 print("No such item.")
 

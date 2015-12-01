@@ -215,6 +215,20 @@ def cmd_inventory(db):
 
 
 #
+# Command: inventory in lowercase for comparing with parser
+#
+def low_inventory(db):
+    cur = db.cursor()
+    cur.execute("select name from item where playerid = 1")
+    inventory = []
+    result = cur.fetchall()
+    for row in result:
+        row = str(row).lower()
+        inventory.append(row)
+    return inventory
+
+
+#
 # Fills the water bottle.
 #
 def fill(db):
