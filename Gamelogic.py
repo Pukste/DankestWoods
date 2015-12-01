@@ -95,6 +95,8 @@ def meet_shaman(db):
 def boat_fixed(db):
     cur = db.cursor()
     cur.execute("select value from events where eventsid = 3")
+    if cur.result == 0:
+        return 0
     return (cur.fetchone())[0]
 
 
