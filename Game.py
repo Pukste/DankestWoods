@@ -43,7 +43,7 @@ def wrap(text):
 # Possible ASCII here if can be arsed.
 # Start message
 wrap("Starting text etc.. here(won't be in the loop, hence shown only once at the start of the game)")
-# Newline
+# New line
 print("")
 
 ending = 0
