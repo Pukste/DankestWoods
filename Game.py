@@ -79,7 +79,7 @@ while ending == 0:
                 print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
             else:
                 print("")
-        if "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
+        if "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
             print("Do you want to drink the Potion of Endless Memory?(y/n)")
             while True:
                 answer = input()
@@ -88,7 +88,7 @@ while ending == 0:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
-                Gamelogic.drink(db)
+                Gamelogic.take_potion(db)
                 print("Potion of Endless Memory removed from inventory.")
             else:
                 print("")
@@ -109,7 +109,7 @@ while ending == 0:
                 ending = 1
             else:
                 print("")
-        if "Potion of Transformation" in Gamelogic.cmd_inventory(db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
+        if "Potion of Transformation" in Gamelogic.cmd_inventory(db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
             print("Do you want to drink the Potion of Endless memory(a) or Potion of Transformation(b)?(a/b/neither)")
             while True:
                 answer = input()
@@ -118,7 +118,7 @@ while ending == 0:
                     break
                 print("Please input a, b or neither.")
             if answer == 'a':
-                Gamelogic.drink(db)
+                Gamelogic.take_potion(db)
                 print("Potion of Endless Memory removed from inventory.")
             elif answer == 'b':
                 print("Potion of Transformation removed from inventory.")
