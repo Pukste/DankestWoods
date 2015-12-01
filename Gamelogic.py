@@ -285,7 +285,7 @@ def trade(db):
 #
 def create(db):
     cur = db.cursor()
-    cur.execute("update item set playerid = NULL where itemid = 6")
+    cur.execute("update item set playerid = NULL where itemid = 3")
     cur2 = db.cursor()
     cur2.execute("update item set playerid = 1 where itemid = 9")
 
