@@ -37,7 +37,7 @@ foreign key (locationid) references location(locationid)
 
 create table events(
 eventsid int(11) not null,
-value int(11) default null,
+value int(11) default 0,
 primary key (eventsid)
 );
 
@@ -70,8 +70,8 @@ insert into item values
 (11, "Water", null, null);
 
 insert into events value
-(1, null),
-(2, null),
-(3, null),
-(4, null),
-(5, null);
+(1, 0),
+(2, 0),
+(3, 0),
+(4, 0),
+(5, 0);
