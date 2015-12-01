@@ -109,7 +109,7 @@ while ending == 0:
                 ending = 1
             else:
                 print("")
-        if "Potion of Transformation" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
+        if "Potion of Transformation" in Gamelogic.cmd_inventory(db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
             print("Do you want to drink the Potion of Endless memory(a) or Potion of Transformation(b)?(a/b/neither)")
             while True:
                 answer = input()
