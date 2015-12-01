@@ -165,6 +165,8 @@ while ending == 0:
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
                 Gamelogic.fix_boat(db)
+                Gamelogic.open_direction(db, 7, 8, "south")
+                Gamelogic.open_direction(db, 8, 7, "north")
                 print("Boat fixed.\n1 Wooden Tap removed from inventory.")
             else:
                 print("")
