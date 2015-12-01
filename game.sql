@@ -65,7 +65,7 @@ insert into item values
 (6, "Empty Vial", null, 1),
 (7, "Vial of Water", null, null),
 (8, "Banana", 5, null),
-(9, "Endless Memory", null, null),
+(9, "Potion of Endless Memory", null, null),
 (10, "Potion of Transformation", null, null),
 (11, "Water", null, null);
 
