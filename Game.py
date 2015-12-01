@@ -178,6 +178,8 @@ while ending == 0:
     # Special event 4: Trading for the wooden tap
     if location == 3:
         if "Wooden Tap" in Gamelogic.cmd_inventory(db):
+            print("")
+        else:
             if "Banana" in Gamelogic.cmd_inventory(db):
                 print("Do you want to trade the banana for a wooden tap?(y/n)")
                 while True:
@@ -197,8 +199,7 @@ while ending == 0:
                     print("Where on earth could you find a banana..")
                 else:
                     print("There was a banana tree a the hills.")
-        else:
-            print("")
+
 
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.door_opened(db) == 0:
