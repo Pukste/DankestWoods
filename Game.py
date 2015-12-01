@@ -201,9 +201,18 @@ while ending == 0:
     if location == 8 and Gamelogic.castle_entered(db) == 0:
         print("There is a weird looking slot in the door.")
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
-            print("Your sword looks like it might fit but strangely it doesn't.")
+            print("There is a slot in the castle door.\nYour sword seems to fit,"
+                  "do you want to insert it into the slot?(y/n)")
+            while True:
+                answer = input()
+                answer = answer.lower()
+                if answer == 'y' or 'n' or 'no' or 'yes':
+                    break
+                print("Please input y or n.")
+            if answer in ['y', 'yes']:
+                print("Strangely your sword doesn't fit into the slot.")
         elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
-            print("Your sword seems to fit, do you want to insert it to the slot?(y/n)")
+            print("Insert your sword into the slot?(y/n)")
             while True:
                 answer = input()
                 answer = answer.lower()
