@@ -134,6 +134,17 @@ def castle_entered(db):
     return (cur.fetchone())[0]
 
 
+def open_door(db):
+    cur = db.cursor()
+    cur.execute("update events set value 1 where eventsid = 6")
+
+
+def door_opened(db):
+    cur = db.cursor()
+    cur.execute("select value from events where eventsid =6")
+    return (cur.fetchone())[0]
+
+
 #
 # Updates the database when the castle is entered
 #
@@ -176,6 +187,8 @@ def cmd_move(db, location, direction):
     cur2 = db.cursor()
     cur2.execute("update player set locationid = " + new_location + " where playerid = 1")
     return 1
+
+
 ## apua
 
 #

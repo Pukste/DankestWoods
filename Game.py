@@ -198,7 +198,7 @@ while ending == 0:
                 print("There was a banana tree a the hills.")
 
     # Special event 5: Entering the castle
-    if location == 8 and Gamelogic.castle_entered(db) == 0:
+    if location == 8 and Gamelogic.door_opened(db) == 0:
         print("There is a weird looking slot in the door.")
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             print("There is a slot in the castle door.\nYour sword seems to fit,"
@@ -222,6 +222,7 @@ while ending == 0:
             if answer in ['y', 'yes']:
                 Gamelogic.open_direction(db, 8, 10, "south")
                 Gamelogic.open_direction(db, 10, 8, "north")
+                Gamelogic.door_opened(db)
                 print("Door unlocked.")
             else:
                 print("")
