@@ -72,7 +72,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -85,7 +85,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -98,7 +98,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -116,7 +116,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'a' or 'b' or 'neither' or 'none' or 'n' or 'no':
+                if answer in ['a', 'b', 'n', 'no', 'neither']:
                     break
                 print("Please input a, b or neither.")
             if answer == 'a':
@@ -162,7 +162,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -174,7 +174,7 @@ while ending == 0:
                 print("")
         else:
             wrap(
-                "You require a boat to cross the river, but the on left on the shore has a hole in it."
+                "You require a boat to cross the river, but the one on the shore has a hole in it."
                 "Maybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
@@ -187,7 +187,7 @@ while ending == 0:
                 while True:
                     answer = input()
                     answer = answer.lower()
-                    if answer == 'y' or 'n' or 'no' or 'yes':
+                    if answer  in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
@@ -211,7 +211,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -221,7 +221,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -242,7 +242,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -251,7 +251,7 @@ while ending == 0:
                 while True:
                     answer1 = input()
                     answer1 = answer.lower()
-                    if answer1 == 'y' or 'n' or 'no' or 'yes':
+                    if answer1  in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
@@ -274,7 +274,7 @@ while ending == 0:
                 while True:
                     answer1 = input()
                     answer1 = answer.lower()
-                    if answer1 == 'y' or 'n' or 'no' or 'yes':
+                    if answer1  in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
@@ -298,7 +298,7 @@ while ending == 0:
                 while True:
                     answer = input()
                     answer = answer.lower()
-                    if answer == 'y' or 'n' or 'no' or 'yes':
+                    if answer  in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
@@ -315,7 +315,7 @@ while ending == 0:
                 while True:
                     answer = input()
                     answer = answer.lower()
-                    if answer == 'y' or 'n' or 'no' or 'yes':
+                    if answer  in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
@@ -408,14 +408,14 @@ while ending == 0:
         while True:
             answer = input("Are you sure you want to quit?(y/n)")
             answer = answer.lower()
-            if answer == 'y' or 'n' or 'no' or 'yes':
+            if answer  in ['y', 'yes', 'n', 'no']:
                 break
             print("Please input y or n.")
         if answer in ['y', 'yes']:
             while True:
                 answer = input("Do you want to save the game?(y/n)")
                 answer = answer.lower()
-                if answer == 'y' or 'n' or 'no' or 'yes':
+                if answer  in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
