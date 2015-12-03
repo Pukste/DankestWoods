@@ -31,6 +31,7 @@ def toimiiko():
             input("blabla")
         if answer in ['c', 'd', 'quit']:
             return
+        conta = 1
 
     elif answer == 'b':
         print("b:ac?")
