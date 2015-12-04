@@ -7,7 +7,6 @@
 ###############################################################################
 
 import Gamelogic
-# import mysql.connector
 # import getpass , not working in pycharm
 import textwrap
 
@@ -20,8 +19,6 @@ pswd = input("Password: ")
 db = Gamelogic.open_database(host, user, pswd)
 
 
-# TESTI BRANCH
-#
 # Mainloop
 #
 # - printing area description
@@ -72,7 +69,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -85,7 +82,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -98,7 +95,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -162,7 +159,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -187,7 +184,7 @@ while ending == 0:
                 while True:
                     answer = input()
                     answer = answer.lower()
-                    if answer  in ['y', 'yes', 'n', 'no']:
+                    if answer in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
@@ -211,7 +208,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -221,7 +218,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -242,7 +239,7 @@ while ending == 0:
             while True:
                 answer = input()
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
@@ -251,7 +248,7 @@ while ending == 0:
                 while True:
                     answer1 = input()
                     answer1 = answer.lower()
-                    if answer1  in ['y', 'yes', 'n', 'no']:
+                    if answer1 in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
@@ -274,7 +271,7 @@ while ending == 0:
                 while True:
                     answer1 = input()
                     answer1 = answer.lower()
-                    if answer1  in ['y', 'yes', 'n', 'no']:
+                    if answer1 in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
@@ -298,7 +295,7 @@ while ending == 0:
                 while True:
                     answer = input()
                     answer = answer.lower()
-                    if answer  in ['y', 'yes', 'n', 'no']:
+                    if answer in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
@@ -315,7 +312,7 @@ while ending == 0:
                 while True:
                     answer = input()
                     answer = answer.lower()
-                    if answer  in ['y', 'yes', 'n', 'no']:
+                    if answer in ['y', 'yes', 'n', 'no']:
                         break
                     print("Please input y or n.")
                 if answer in ['y', 'yes']:
@@ -408,14 +405,14 @@ while ending == 0:
         while True:
             answer = input("Are you sure you want to quit?(y/n)")
             answer = answer.lower()
-            if answer  in ['y', 'yes', 'n', 'no']:
+            if answer in ['y', 'yes', 'n', 'no']:
                 break
             print("Please input y or n.")
         if answer in ['y', 'yes']:
             while True:
                 answer = input("Do you want to save the game?(y/n)")
                 answer = answer.lower()
-                if answer  in ['y', 'yes', 'n', 'no']:
+                if answer in ['y', 'yes', 'n', 'no']:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
