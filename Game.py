@@ -103,12 +103,12 @@ while ending == 0:
             if answer in ['y', 'yes']:
                 print("Potion of Transformation removed from inventory.")
                 wrap(
-                    "You start feeling ill and pass out. You wake up with feeling teRIBBITle. "
-                    "You have no idea what is going on. RIBBIT!  And then you realise, you've turned "
-                    "into a frog. RIBBIT!")
+                    "You start feeling ill and pass out. You wake up feeling teRIBBITle. "
+                    "You have no idea what is going on. RIBBIT!  And then you realise, you've turned... "
+                    "...into a frog. RIBBIT!")
                 ending = 1
             else:
-                print("")
+                print("You choose not to drink the potion.")
         if "Potion of Transformation" in Gamelogic.cmd_inventory(
                 db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
             print("Do you want to drink the Potion of Endless memory(a) or Potion of Transformation(b)?(a/b/neither)")
@@ -124,12 +124,12 @@ while ending == 0:
             elif answer == 'b':
                 print("Potion of Transformation removed from inventory.")
                 wrap(
-                    "You start feeling ill and pass out. You wake up with feeling teRIBBITle. "
-                    "You have no idea what is going on. RIBBIT! And then you realise,"
-                    "you've turned into a frog. RIBBIT!")
+                    "You start feeling ill and pass out. You wake up feeling teRIBBITle. "
+                    "You have no idea what is going on. RIBBIT! And then you realise..."
+                    "....you've turned into a frog. RIBBIT!")
                 ending = 1
             else:
-                print("")
+                print("You choose to not drink anything.")
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
                 wrap(
