@@ -7,7 +7,6 @@
 ###############################################################################
 
 import Gamelogic
-# import mysql.connector
 # import getpass , not working in pycharm
 import textwrap
 
@@ -20,8 +19,6 @@ pswd = input("Password: ")
 db = Gamelogic.open_database(host, user, pswd)
 
 
-# TESTI BRANCH
-#
 # Mainloop
 #
 # - printing area description
