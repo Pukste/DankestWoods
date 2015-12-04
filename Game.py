@@ -333,10 +333,11 @@ while ending == 0:
     # Input and parsing
     print("")
     cmd = input("> ").lower()
-    # This section removes the characters specified from the command input
+    # This section removes the specified characters from the command input
     for char in cmd:
         if char in "'":
             cmd = cmd.replace(char,'')
+    # Might cause problems if an input requires any of the characters removed i.e. "Dan's Vial" becomes "Dans vial" and is thus not an exact match anymore
     if cmd == "":
         continue
     cmd_list = cmd.split()
