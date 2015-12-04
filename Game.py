@@ -333,6 +333,10 @@ while ending == 0:
     # Input and parsing
     print("")
     cmd = input("> ").lower()
+    #This section removes the characters specified from the command input
+    for char in cmd:
+        if char in "'":
+            cmd = cmd.replace(char,'')
     if cmd == "":
         continue
     cmd_list = cmd.split()
@@ -425,5 +429,8 @@ while ending == 0:
     # Unknown command.
     else:
         print("Invalid command...")
+
+
+
 
 print("The game has ended. Dank you for playing!")
