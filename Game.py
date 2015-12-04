@@ -204,7 +204,7 @@ while ending == 0:
         print("There is a weird looking slot in the door.")
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             print("There is a slot in the castle door.\nYour sword seems to fit,"
-                  "do you want to insert it into the slot?(y/n)")
+                  "Do you want to insert it into the slot?(y/n)")
             while True:
                 answer = input()
                 answer = answer.lower()
