@@ -13,8 +13,10 @@ import textwrap
 #
 # Creating connection to database.
 #
-host = input("Server: ")
-user = input("User: ")
+# host = input("Server: ")
+# user = input("User: ")
+host = 'localhost'
+user = 'user'
 pswd = input("Password: ")
 db = Gamelogic.open_database(host, user, pswd)
 
