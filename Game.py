@@ -197,7 +197,7 @@ while ending == 0:
                 if Gamelogic.hill_visited(db) == 0:
                     print("Where on earth could you find a banana..")
                 else:
-                    print("There was a banana tree a the hills.")
+                    print("There was a banana tree on the hills.")
 
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.door_opened(db) == 0:
