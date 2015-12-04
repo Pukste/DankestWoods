@@ -7,6 +7,7 @@
 ###############################################################################
 
 import Gamelogic
+import dialog
 # import getpass , not working in pycharm
 import textwrap
 
@@ -396,6 +397,17 @@ while ending == 0:
             print(object, "can't be dropped.")
         else:
             print(object, "dropped.")
+
+    # Command: talk
+    elif verb in ["talk", "speak"]:
+        if object == "":
+            print("You talk to yourself.\n")
+        elif object == "to shaman" and Gamelogic.location(db) == 4:
+            dialog.talkShaman()
+            print("")
+        else:
+            print("You talk gibberish.\n")
+
     # Command: help
     elif verb == "help":
         print("Commands:\nMove () North, South, East, West\nInventory (shows items you have)\n"

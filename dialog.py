@@ -1,5 +1,28 @@
 # testi dialog treetä varten jos npc jne..
+import textwrap
 
+def wrap(text):
+    print(textwrap.fill(text, 80))
+
+def talkShaman():
+    while True:
+        while True:
+            wrap("Shaman: \"Hello stranger.\"")
+            wrap("a) Who are you?")
+            wrap("b) Do you know who I am?")
+            wrap("q) I should go now.")
+            answer = input()
+            answer = answer.lower()
+            if answer in ['a', 'b', 'q', 'quit']:
+                break
+        if answer == 'a':
+            wrap("Shaman: \"I am a shaman.\"")
+            print("")
+        if answer == 'b':
+            wrap("Shaman: \"No but I have something that may help you remember. Just gather me some herbs and I'll make you potion of endless memory.\"")
+            print("")
+        if answer in ['q', 'quit']:
+            break
 
 def toimiiko():
     conta = 0
