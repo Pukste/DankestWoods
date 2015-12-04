@@ -245,7 +245,7 @@ while ending == 0:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
-                print("You pour the potion into the wine bottle. A puff a green smoke erupts from the bottle.")
+                print("You pour the potion into the wine bottle. A puff of green smoke erupts from the bottle.")
                 print("You hear footsteps in the distance. Do you want to hide?(y/n)")
                 while True:
                     answer1 = input()
