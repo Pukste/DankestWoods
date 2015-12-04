@@ -334,6 +334,11 @@ while ending == 0:
     # Input and parsing
     print("")
     cmd = input("> ").lower()
+    # This section removes the specified characters from the command input
+    for char in cmd:
+        if char in "'":
+            cmd = cmd.replace(char,'')
+    # Might cause problems if an input requires any of the characters removed i.e. "Dan's Vial" becomes "Dans vial" and is thus not an exact match anymore
     if cmd == "":
         continue
     cmd_list = cmd.split()
@@ -378,12 +383,12 @@ while ending == 0:
 
     # Command: rotate
     elif verb == "rotate":
-        if object == "sword":
+        if object == "sword" and "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             Gamelogic.rotate(db)
             print("Sword of All Things Right removed from inventory.")
             print("Sword of All Things Left added to inventory")
         else:
-            print("Can't be rotated.")
+            print("Nothing to rotate.")
 
     # Command: inventory (shows items on the player)
     elif verb == "inventory":
@@ -437,5 +442,8 @@ while ending == 0:
     # Unknown command.
     else:
         print("Invalid command...")
+
+
+
 
 print("The game has ended. Dank you for playing!")

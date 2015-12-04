@@ -69,10 +69,9 @@ def potion_taken(db):
 #
 def take_potion(db):
     cur = db.cursor()
-    cur.execute("update events set value = 1 where eventsid = 1")
+    cur.execute("update item set playerid = NULL where itemid = 9")
     cur2 = db.cursor()
-    cur2.execute("update item set playerid = NULL where itemid = 9")
-
+    cur2.execute("update events set value = 1 where eventsid = 1")
 
 #
 # Checks if the shaman has been met
@@ -256,6 +255,8 @@ def create_potion(db):
 def inspect(db, item):
     cur = db.cursor()
     cur.execute("select description from item where name = '" + item + "'")
+    if cur.rowcount == 0:
+        return None
     return (cur.fetchone())[0]
 
 
@@ -275,7 +276,7 @@ def cmd_drop(db, item, location):
 #
 def trade(db):
     cur = db.cursor()
-    cur.execute("update item set playerid = NULL where itemid = 5")
+    cur.execute("update item set playerid = NULL where itemid = 8")
     cur2 = db.cursor()
     cur2.execute("update item set playerid = 1 where itemid = 4")
 
