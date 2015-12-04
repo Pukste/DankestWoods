@@ -256,6 +256,8 @@ def create_potion(db):
 def inspect(db, item):
     cur = db.cursor()
     cur.execute("select description from item where name = '" + item + "'")
+    if cur.rowcount == 0:
+        return None
     return (cur.fetchone())[0]
 
 
