@@ -103,12 +103,12 @@ while ending == 0:
             if answer in ['y', 'yes']:
                 print("Potion of Transformation removed from inventory.")
                 wrap(
-                    "You start feeling ill and pass out. You wake up with feeling teRIBBITle. "
-                    "You have no idea what is going on. RIBBIT!  And then you realise, you've turned "
-                    "into a frog. RIBBIT!")
+                    "You start feeling ill and pass out. You wake up feeling teRIBBITle. "
+                    "You have no idea what is going on. RIBBIT!  And then you realise, you've turned... "
+                    "...into a frog. RIBBIT!")
                 ending = 1
             else:
-                print("")
+                print("You choose not to drink the potion.")
         if "Potion of Transformation" in Gamelogic.cmd_inventory(
                 db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
             print("Do you want to drink the Potion of Endless memory(a) or Potion of Transformation(b)?(a/b/neither)")
@@ -124,12 +124,12 @@ while ending == 0:
             elif answer == 'b':
                 print("Potion of Transformation removed from inventory.")
                 wrap(
-                    "You start feeling ill and pass out. You wake up with feeling teRIBBITle. "
-                    "You have no idea what is going on. RIBBIT! And then you realise,"
-                    "you've turned into a frog. RIBBIT!")
+                    "You start feeling ill and pass out. You wake up feeling teRIBBITle. "
+                    "You have no idea what is going on. RIBBIT! And then you realise..."
+                    "....you've turned into a frog. RIBBIT!")
                 ending = 1
             else:
-                print("")
+                print("You choose to not drink anything.")
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
                 wrap(
@@ -199,14 +199,14 @@ while ending == 0:
                 if Gamelogic.hill_visited(db) == 0:
                     print("Where on earth could you find a banana..")
                 else:
-                    print("There was a banana tree a the hills.")
+                    print("There was a banana tree on the hills.")
 
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.door_opened(db) == 0:
         print("There is a weird looking slot in the door.")
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             print("There is a slot in the castle door.\nYour sword seems to fit,"
-                  "do you want to insert it into the slot?(y/n)")
+                  "Do you want to insert it into the slot?(y/n)")
             while True:
                 answer = input()
                 answer = answer.lower()
@@ -245,7 +245,7 @@ while ending == 0:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
-                print("You pour the potion into the wine bottle. A puff a green smoke erupts from the bottle.")
+                print("You pour the potion into the wine bottle. A puff of green smoke erupts from the bottle.")
                 print("You hear footsteps in the distance. Do you want to hide?(y/n)")
                 while True:
                     answer1 = input()
@@ -426,4 +426,4 @@ while ending == 0:
     else:
         print("Invalid command...")
 
-print("The game has ended. Thank you for playing!")
+print("The game has ended. Dank you for playing!")
