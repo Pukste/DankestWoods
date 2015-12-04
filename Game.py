@@ -377,12 +377,12 @@ while ending == 0:
 
     # Command: rotate
     elif verb == "rotate":
-        if object == "sword" and "Sword of All Things Right" in Gamelogic.cmd_inventory(db):
+        if object == "sword" and "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             Gamelogic.rotate(db)
             print("Sword of All Things Right removed from inventory.")
             print("Sword of All Things Left added to inventory")
         else:
-            print("Can't be rotated.")
+            print("Nothing to rotate.")
 
     # Command: inventory (shows items on the player)
     elif verb == "inventory":
