@@ -16,7 +16,7 @@ import textwrap
 # host = input("Server: ")
 # user = input("User: ")
 host = 'localhost'
-user = 'user'
+user = 'root'
 pswd = input("Password: ")
 db = Gamelogic.open_database(host, user, pswd)
 
