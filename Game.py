@@ -283,7 +283,7 @@ while ending == 0:
     cmd = input("> ").lower()
     # This section removes the specified characters from the command input
     for char in cmd:
-        if char in "'":
+        if char in "';":
             cmd = cmd.replace(char, '')
     # Might cause problems if an input requires any of the characters removed i.e. "Dan's Vial" becomes "Dans vial" and is thus not an exact match anymore
     if cmd == "":
