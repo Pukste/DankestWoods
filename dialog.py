@@ -4,25 +4,54 @@ import textwrap
 def wrap(text):
     print(textwrap.fill(text, 80))
 
-def talkShaman():
-    while True:
+def talkShaman(herbs):
+    potion = 0
+    if herbs:
         while True:
-            wrap("Shaman: \"Hello stranger.\"")
-            wrap("a) Who are you?")
-            wrap("b) Do you know who I am?")
-            wrap("q) I should go now.")
-            answer = input()
-            answer = answer.lower()
-            if answer in ['a', 'b', 'q', 'quit']:
+            while True:
+                wrap("Shaman: \"Hello stranger.\"")
+                wrap("a) Who are you?")
+                wrap("b) Do you know who I am?")
+                wrap("q) I should go now.")
+                answer = input()
+                answer = answer.lower()
+                if answer in ['a', 'b', 'q', 'quit']:
+                    break
+            if answer == 'a':
+                wrap("Shaman: \"I am a shaman.\"")
+                print("")
+            if answer == 'b':
+                wrap("Shaman: \"No but I have something that may help you remember. Just gather me some herbs and I'll make you the potion of endless memory.\"")
+                print("")
+            if answer in ['q', 'quit']:
                 break
-        if answer == 'a':
-            wrap("Shaman: \"I am a shaman.\"")
-            print("")
-        if answer == 'b':
-            wrap("Shaman: \"No but I have something that may help you remember. Just gather me some herbs and I'll make you the potion of endless memory.\"")
-            print("")
-        if answer in ['q', 'quit']:
-            break
+        return potion
+    else:
+        while True:
+            while True:
+                wrap("Shaman: \"Hello stranger.\"")
+                wrap("a) Who are you?")
+                wrap("b) Do you know who I am?")
+                wrap("c) I have some herbs.")
+                wrap("q) I should go now.")
+                answer = input()
+                answer = answer.lower()
+                if answer in ['a', 'b', 'c', 'q', 'quit']:
+                    break
+            if answer == 'a':
+                wrap("Shaman: \"I am a shaman.\"")
+                print("")
+            if answer == 'b':
+                wrap("Shaman: \"No but I have something that may help you remember. Just gather me some herbs and I'll make you the potion of endless memory.\"")
+                print("")
+            if answer == 'c':
+                wrap("Shaman: \"Here is a potion made from the herbs\"")
+                print("")
+                potion = 1
+            if answer in ['q', 'quit']:
+                break
+        if
+        return potion
 
 def talkTrader():
     while True:

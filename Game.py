@@ -355,7 +355,10 @@ while ending == 0:
         if object == "":
             print("You talk to yourself.\n")
         elif object == "to shaman" and Gamelogic.location(db) == 4:
-            dialog.talkShaman()
+            herbs = False
+            if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
+                herbs = True
+            dialog.talkShaman(herbs)
             print("")
         elif object == "to trader" and Gamelogic.location(db) == 9:
             dialog.talkTrader()
