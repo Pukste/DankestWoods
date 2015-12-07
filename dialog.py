@@ -24,6 +24,26 @@ def talkShaman():
         if answer in ['q', 'quit']:
             break
 
+def talkTrader():
+    while True:
+        while True:
+            wrap("Mushroom trader: \"Hello. Do you want to trade with me?\"")
+            wrap("a) Yes.")
+            wrap("b) No.")
+            wrap("q) I should go now.")
+            answer = input()
+            answer = answer.lower()
+            if answer in ['a', 'b', 'q', 'quit']:
+                break
+        if answer == 'a':
+            wrap("Mushroom trader: \"Too bad I don't have anything to trade.\"")
+            print("")
+        if answer == 'b':
+            wrap("Mushroom trader: \"Well. Let's trade some other time then.\"")
+            print("")
+        if answer in ['q', 'quit']:
+            break
+
 def toimiiko():
     conta = 0
     print("abc?")

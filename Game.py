@@ -357,6 +357,9 @@ while ending == 0:
         elif object == "to shaman" and Gamelogic.location(db) == 4:
             dialog.talkShaman()
             print("")
+        elif object == "to trader" and Gamelogic.location(db) == 9:
+            dialog.talkTrader()
+            print("")
         else:
             print("You talk gibberish.\n")
 
