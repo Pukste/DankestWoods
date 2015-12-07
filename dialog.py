@@ -19,7 +19,7 @@ def talkShaman():
             wrap("Shaman: \"I am a shaman.\"")
             print("")
         if answer == 'b':
-            wrap("Shaman: \"No but I have something that may help you remember. Just gather me some herbs and I'll make you potion of endless memory.\"")
+            wrap("Shaman: \"No but I have something that may help you remember. Just gather me some herbs and I'll make you the potion of endless memory.\"")
             print("")
         if answer in ['q', 'quit']:
             break

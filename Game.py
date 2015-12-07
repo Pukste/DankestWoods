@@ -283,7 +283,7 @@ while ending == 0:
     cmd = input("> ").lower()
     # This section removes the specified characters from the command input
     for char in cmd:
-        if char in "'":
+        if char in "';":
             cmd = cmd.replace(char, '')
     # Might cause problems if an input requires any of the characters removed i.e. "Dan's Vial" becomes "Dans vial" and is thus not an exact match anymore
     if cmd == "":
@@ -301,13 +301,13 @@ while ending == 0:
         # print("Please input one or two words only.")
 
     # Command: move
-    if verb == "move":
-        if object == "north" or object == "south" or object == "west" or object == "east":
+    if verb in ['go', 'move', 'm', 'g']:
+        if object in ['north', 'n'] or object in ['south', 's'] or object in ['west', 'w'] or object in ['east', 'e']:
             if Gamelogic.cmd_move(db, location, object) == 0:
                 print("Can't go that way.")
 
     # Command: Pick up
-    elif verb == "pick":
+    elif verb in ['pick', 'p']:
         if object == "":
             print("No item selected.")
         else:
@@ -319,7 +319,7 @@ while ending == 0:
                 print(object, "picked up.")
 
     # Command: inspect
-    elif verb == "inspect":
+    elif verb in ['inspect', 'ins']:
         if object == "":
             print("No item selected.")
         else:
@@ -329,8 +329,8 @@ while ending == 0:
                 print("No such item.")
 
     # Command: rotate
-    elif verb == "rotate":
-        if object == "sword" and "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
+    elif verb in ['rotate', 'r']:
+        if object in ['sword', 'the sword of all things right', 'sword of all things right'] and "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             Gamelogic.rotate(db)
             print("Sword of All Things Right removed from inventory.")
             print("Sword of All Things Left added to inventory")
@@ -338,11 +338,11 @@ while ending == 0:
             print("Nothing to rotate.")
 
     # Command: inventory (shows items on the player)
-    elif verb == "inventory":
+    elif verb in ['inventory', 'i']:
         print(Gamelogic.cmd_inventory(db))
 
     # Command: drop
-    elif verb == "drop":
+    elif verb in ['drop', 'd']:
         if object == "":
             print("No item selected.")
         elif Gamelogic.cmd_drop(db, object, location) == 0:
@@ -368,25 +368,25 @@ while ending == 0:
         if object == "":
             print("Choose an item.")
         elif object == "potion of endless memory" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
+            Gamelogic.take_potion(db)
+            print("Potion of Endless Memory removed from inventory.")
+        elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Potion of Transformation removed from inventory.")
             wrap("You start feeling ill and pass out. You wake up feeling teRIBBITle. "
                  "You have no idea what is going on. RIBBIT!  And then you realise, you've turned... "
                  "...into a frog. RIBBIT!")
             ending = 1
-        elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
-            Gamelogic.take_potion(db)
-            print("Potion of Endless Memory removed from inventory.")
         else:
             print("No such item")
 
     # Command: help
-    elif verb == "help":
+    elif verb in ['help', 'h']:
         print("Commands:\nMove () North, South, East, West\nInventory (shows items you have)\n"
               "Drop (item) Drops a specific item\nPick (item) Picks up an item\nInspect (item) Inspects an item\n"
               "Rotate (item)\nEnd (ends the game)")
 
     # Command: end
-    elif verb == "end":
+    elif verb in ['end', 'e']:
         while True:
             answer = input("Are you sure you want to quit?(y/n)")
             answer = answer.lower()
