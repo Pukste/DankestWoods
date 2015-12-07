@@ -277,8 +277,6 @@ while ending == 0:
 
             else:
                 print("Need to find the Magic Mushroom and water to create the potion.")
-    if ending == 1:
-        break
 
     # Input and parsing
     print("")
