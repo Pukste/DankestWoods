@@ -80,57 +80,6 @@ while ending == 0:
                 print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
             else:
                 print("")
-        if "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
-            print("Do you want to drink the Potion of Endless Memory?(y/n)")
-            while True:
-                answer = input()
-                answer = answer.lower()
-                if answer in ['y', 'yes', 'n', 'no']:
-                    break
-                print("Please input y or n.")
-            if answer in ['y', 'yes']:
-                Gamelogic.take_potion(db)
-                print("Potion of Endless Memory removed from inventory.")
-            else:
-                print("")
-        if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
-            print("Do you want to drink the Potion of Transformation?(y/n)")
-            while True:
-                answer = input()
-                answer = answer.lower()
-                if answer in ['y', 'yes', 'n', 'no']:
-                    break
-                print("Please input y or n.")
-            if answer in ['y', 'yes']:
-                print("Potion of Transformation removed from inventory.")
-                wrap(
-                    "You start feeling ill and pass out. You wake up feeling teRIBBITle. "
-                    "You have no idea what is going on. RIBBIT!  And then you realise, you've turned... "
-                    "...into a frog. RIBBIT!")
-                ending = 1
-            else:
-                print("You choose not to drink the potion.")
-        if "Potion of Transformation" in Gamelogic.cmd_inventory(
-                db) and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db) and Gamelogic.potion_taken(db) == 0:
-            print("Do you want to drink the Potion of Endless memory(a) or Potion of Transformation(b)?(a/b/neither)")
-            while True:
-                answer = input()
-                answer = answer.lower()
-                if answer in ['a', 'b', 'n', 'no', 'neither']:
-                    break
-                print("Please input a, b or neither.")
-            if answer == 'a':
-                Gamelogic.take_potion(db)
-                print("Potion of Endless Memory removed from inventory.")
-            elif answer == 'b':
-                print("Potion of Transformation removed from inventory.")
-                wrap(
-                    "You start feeling ill and pass out. You wake up feeling teRIBBITle. "
-                    "You have no idea what is going on. RIBBIT! And then you realise..."
-                    "....you've turned into a frog. RIBBIT!")
-                ending = 1
-            else:
-                print("You choose to not drink anything.")
         if Gamelogic.potion_taken(db) == 0:
             if Gamelogic.shaman_met(db) == 0:
                 wrap(
@@ -337,7 +286,7 @@ while ending == 0:
     # This section removes the specified characters from the command input
     for char in cmd:
         if char in "'":
-            cmd = cmd.replace(char,'')
+            cmd = cmd.replace(char, '')
     # Might cause problems if an input requires any of the characters removed i.e. "Dan's Vial" becomes "Dans vial" and is thus not an exact match anymore
     if cmd == "":
         continue
@@ -418,9 +367,14 @@ while ending == 0:
         if object == "":
             print("Choose an item.")
         elif object == "potion of endless memory" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
-            print("..")
+            print("Potion of Transformation removed from inventory.")
+            wrap("You start feeling ill and pass out. You wake up feeling teRIBBITle. "
+                 "You have no idea what is going on. RIBBIT!  And then you realise, you've turned... "
+                 "...into a frog. RIBBIT!")
+            ending = 1
         elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
-            print("..")
+            Gamelogic.take_potion(db)
+            print("Potion of Endless Memory removed from inventory.")
         else:
             print("No such item")
 
@@ -453,8 +407,5 @@ while ending == 0:
     # Unknown command.
     else:
         print("Invalid command...")
-
-
-
 
 print("The game has ended. Dank you for playing!")
