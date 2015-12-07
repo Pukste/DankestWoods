@@ -413,6 +413,17 @@ while ending == 0:
         else:
             print("You talk gibberish.\n")
 
+    # Command: drink (potion)
+    elif verb == "drink":
+        if object == "":
+            print("Choose an item.")
+        elif object == "potion of endless memory" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
+            print("..")
+        elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
+            print("..")
+        else:
+            print("No such item")
+
     # Command: help
     elif verb == "help":
         print("Commands:\nMove () North, South, East, West\nInventory (shows items you have)\n"

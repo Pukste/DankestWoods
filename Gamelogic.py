@@ -73,6 +73,7 @@ def take_potion(db):
     cur2 = db.cursor()
     cur2.execute("update events set value = 1 where eventsid = 1")
 
+
 #
 # Checks if the shaman has been met
 #
