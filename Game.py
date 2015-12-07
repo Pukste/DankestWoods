@@ -365,14 +365,14 @@ while ending == 0:
         if object == "":
             print("Choose an item.")
         elif object == "potion of endless memory" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
+            Gamelogic.take_potion(db)
+            print("Potion of Endless Memory removed from inventory.")
+        elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Potion of Transformation removed from inventory.")
             wrap("You start feeling ill and pass out. You wake up feeling teRIBBITle. "
                  "You have no idea what is going on. RIBBIT!  And then you realise, you've turned... "
                  "...into a frog. RIBBIT!")
             ending = 1
-        elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
-            Gamelogic.take_potion(db)
-            print("Potion of Endless Memory removed from inventory.")
         else:
             print("No such item")
 
