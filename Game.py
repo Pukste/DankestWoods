@@ -406,4 +406,4 @@ while ending == 0:
     else:
         print("Invalid command...")
 
-print("The game has ended. Thank you for playing!")
+input("The game has ended. Thank you for playing! Press any button to end the game")
