@@ -66,7 +66,7 @@ while ending == 0:
         print("Items in the area:", items)
 
     # Special event 1: Making and drinking the potion
-    #if location == 4:
+    # if location == 4:
     #    if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
     #        print("Do you want to trade the herbs for the potion?(y/n)")
     #        while True:
@@ -152,37 +152,38 @@ while ending == 0:
     #                print("There may have been a banana tree on a hill somewhere.")
 
     # Special event 5: Entering the castle
-    if location == 8 and Gamelogic.door_opened(db) == 0:
-        print("There is a weird looking slot in the door.")
-        if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
-            print("There is a slot in the castle door.\nYour sword looks like it could fit, "
-                  "Do you wish to try inserting it into the slot?(y/n)")
-            while True:
-                answer = input()
-                answer = answer.lower()
-                if answer in ['y', 'yes', 'n', 'no']:
-                    break
-                print("Please input y or n.")
-            if answer in ['y', 'yes']:
-                print("Strangely your sword doesn't seem to fit at all.\nRidicilous.\nWhy would this thing not fit into this marvelously left aligned slot.")
-        elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
-            print("Insert your sword into the slot?(y/n)")
-            while True:
-                answer = input()
-                answer = answer.lower()
-                if answer in ['y', 'yes', 'n', 'no']:
-                    break
-                print("Please input y or n.")
-            if answer in ['y', 'yes']:
-                Gamelogic.open_direction(db, 8, 10, "south")
-                Gamelogic.open_direction(db, 10, 8, "north")
-                Gamelogic.door_opened(db)
-                print("Door unlocked. Wasn't that hard now was it.")
-            else:
-                print("")
-        else:
-            wrap("There must be something that fits into it.\nIt's shaped like a"
-                 "weird looking sword, but you have no such thing with you.")
+    #if location == 8 and Gamelogic.door_opened(db) == 0:
+    #    print("There is a weird looking slot in the door.")
+    #    if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
+    #        print("There is a slot in the castle door.\nYour sword looks like it could fit, "
+    #              "Do you wish to try inserting it into the slot?(y/n)")
+    #        while True:
+    #            answer = input()
+    #            answer = answer.lower()
+    #            if answer in ['y', 'yes', 'n', 'no']:
+    #                break
+    #            print("Please input y or n.")
+    #        if answer in ['y', 'yes']:
+    #            print(
+    #                "Strangely your sword doesn't seem to fit at all.\nRidicilous.\nWhy would this thing not fit into this marvelously left aligned slot.")
+    #    elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
+    #        print("Insert your sword into the slot?(y/n)")
+    #        while True:
+    #            answer = input()
+    #            answer = answer.lower()
+    #            if answer in ['y', 'yes', 'n', 'no']:
+    #                break
+    #            print("Please input y or n.")
+    #        if answer in ['y', 'yes']:
+    #            Gamelogic.open_direction(db, 8, 10, "south")
+    #            Gamelogic.open_direction(db, 10, 8, "north")
+    #            Gamelogic.door_opened(db)
+    #            print("Door unlocked. Wasn't that hard now was it.")
+    #        else:
+    #            print("")
+    #    else:
+    #        wrap("There must be something that fits into it.\nIt's shaped like a"
+    #             "weird looking sword, but you have no such thing with you.")
 
     # Special event 6: Game ending and creation of the Potion of Transformation
     if location == 10:
@@ -341,7 +342,8 @@ while ending == 0:
 
     # Command: rotate
     elif verb in ['rotate', 'r']:
-        if object in ['sword', 'the sword of all things right', 'sword of all things right'] and "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
+        if object in ['sword', 'the sword of all things right',
+                      'sword of all things right'] and "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
             Gamelogic.rotate(db)
             print("Sword of All Things Right removed from inventory.")
             print("Sword of All Things Left added to inventory")
@@ -412,6 +414,45 @@ while ending == 0:
         print("Commands:\nMove () North, South, East, West\nInventory (shows items you have)\n"
               "Drop (item) Drops a specific item\nPick (item) Picks up an item\nInspect (item) Inspects an item\n"
               "Rotate (item)\nEnd (ends the game)")
+    # Command: open door
+    elif verb in ['open', 'o']:
+        if object == "":
+            print("What do you wish to open")
+        if object in ['d', 'door']:
+            if location == 8 and Gamelogic.door_opened(db) == 0:
+                if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
+                    print("There is a slot in the castle door.\nYour sword looks like it could fit, "
+                          "Do you wish to try inserting it into the slot?(y/n)")
+                    while True:
+                        answer = input()
+                        answer = answer.lower()
+                        if answer in ['y', 'yes', 'n', 'no']:
+                            break
+                        print("Please input y or n.")
+                    if answer in ['y', 'yes']:
+                        print("Strangely your sword doesn't seem to fit at all.\nRidicilous.\nWhy would this thing not fit into this marvelously left aligned slot.")
+                elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
+                    print("Insert your sword into the slot?(y/n)")
+                    while True:
+                        answer = input()
+                        answer = answer.lower()
+                        if answer in ['y', 'yes', 'n', 'no']:
+                            break
+                        print("Please input y or n.")
+                    if answer in ['y', 'yes']:
+                        Gamelogic.open_direction(db, 8, 10, "south")
+                        Gamelogic.open_direction(db, 10, 8, "north")
+                        Gamelogic.door_opened(db)
+                        print("Door unlocked. Wasn't that hard now was it.")
+                    else:
+                        print("")
+                else:
+                    wrap("There must be something that fits into it.\nIt's shaped like a"
+                         "weird looking sword, but you have no such thing with you.")
+            else:
+                print("No door to open here.")
+        else:
+            print(object, " cannot be opened.")
 
     # Command: end
     elif verb in ['end', 'e']:
