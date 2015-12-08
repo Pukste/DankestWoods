@@ -75,7 +75,7 @@ def talkTrader(memorypotiondrank):
             wrap("Mushroom trader: \"Well. Let's trade some other time then.\"")
             print("")
         if answer == 'c':
-            wrap("Mushroom trader: \"Yes. I hate him for turning my goods into mud. Do you want some magic mushrooms?\"")
+            wrap("Mushroom trader: \"Yes. I hate him for turning my goods into mud. Here is some magic mushroom.\"")
             print("")
             mushroom = True
         if answer in ['q', 'quit']:
