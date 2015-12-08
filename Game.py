@@ -303,6 +303,14 @@ while ending == 0:
     # Command: move
     if verb in ['go', 'move', 'm', 'g']:
         if object in ['north', 'n'] or object in ['south', 's'] or object in ['west', 'w'] or object in ['east', 'e']:
+            if object == 'n':
+                object = 'north'
+            if object == 's':
+                object = 'south'
+            if object == 'w':
+                object = 'west'
+            if object == 'e':
+                object = 'east'
             if Gamelogic.cmd_move(db, location, object) == 0:
                 print("Can't go that way.")
 
