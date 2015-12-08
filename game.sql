@@ -64,11 +64,10 @@ insert into item values
 (4, "Wooden Tap", "It's a tap, it goes into holes tightly. Not to be used on living things.", null, null),
 (5, "Magic Mushroom", "You feel nauseous even holding it. It would be an awful idea to try to make anything out of this, so don't.",null, null),
 (6, "Empty Vial","It's an empty glass vial. Things go in it.", null, 1),
-(7, "Vial of Water","It's a vial of water. Contained in the vial like logic would dictate.", null, null),
+(7, "Water", "It's water. Your container seems to have vanished so one can only wonder how you're carrying this.", null, null);
 (8, "Banana", "It's a banana, the king of fruits.", 5, null),
 (9, "Potion of Endless Memory", "Looks like swamp water, but it's not like deranged lunatics have ever lied to you before right?", null, null),
 (10, "Potion of Transformation", "And you just had to use the mushroom. For the love of god don't go drinking this.", null, null),
-(11, "Water", "It's water. Your container seems to have vanished so one can only wonder how you're carrying this.", null, null);
 
 insert into events value
 (1, 0),

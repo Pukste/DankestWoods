@@ -233,7 +233,7 @@ def low_inventory(db):
 #
 def fill(db):
     cur = db.cursor()
-    cur.execute("update item set playerid = 1 where itemid = 11")
+    cur.execute("update item set playerid = 1 where itemid = 7")
     cur2 = db.cursor()
     cur2.execute("update item set playerid = NULL where itemid = 6")
 
@@ -245,7 +245,7 @@ def create_potion(db):
     cur = db.cursor()
     cur.execute("update item set playerid = NULL where itemid = 5")
     cur2 = db.cursor()
-    cur2.execute("update item set playerid = NULL where itemid = 11")
+    cur2.execute("update item set playerid = NULL where itemid = 7")
     cur3 = db.cursor()
     cur3.execute("update item set playerid = 1 where itemid = 10")
 
