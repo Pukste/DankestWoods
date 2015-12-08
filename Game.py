@@ -155,7 +155,7 @@ while ending == 0:
     if location == 8 and Gamelogic.door_opened(db) == 0:
         print("There is a weird looking slot in the door.")
         if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
-            print("There is a slot in the castle door.\nYour sword looks like it could fit,"
+            print("There is a slot in the castle door.\nYour sword looks like it could fit, "
                   "Do you wish to try inserting it into the slot?(y/n)")
             while True:
                 answer = input()
