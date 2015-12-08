@@ -45,7 +45,7 @@ def wrap(text):
 # Start message
 wrap("Starting text etc.. here(won't be in the loop, hence shown only once at the start of the game)")
 # New line
-print("")
+input("Start Game")
 
 ending = 0
 while ending == 0:
