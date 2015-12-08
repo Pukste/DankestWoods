@@ -65,7 +65,7 @@ while ending == 0:
     if len(items) > 0:
         print("Items in the area:", items)
 
-    # Special event 1: Making and drinking the potion
+    # Special event 1: Making the potion
     if location == 4:
         if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
             print("Do you want to trade the herbs for the potion?(y/n)")
