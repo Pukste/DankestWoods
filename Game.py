@@ -261,7 +261,7 @@ while ending == 0:
                         "the mushroom and a litre of water are here.\nI wonder if this would actually work.")
                 else:
                     print("")
-            elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory(db):
+            elif "Magic_Mushroom" in Gamelogic.cmd_inventory(db) and "Water" in Gamelogic.cmd_inventory(db):
                 print("Do you want to make the Potion of Transformation?(y/n)")
                 while True:
                     answer = input()
@@ -274,6 +274,7 @@ while ending == 0:
                     wrap(
                         "Magic Mushroom removed from inventory\nWater removed from inventory\n"
                         "Potion of Transformation added to inventory")
+                    continue
                 else:
                     print("")
 
