@@ -66,28 +66,28 @@ while ending == 0:
         print("Items in the area:", items)
 
     # Special event 1: Making and drinking the potion
-    if location == 4:
-        if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
-            print("Do you want to trade the herbs for the potion?(y/n)")
-            while True:
-                answer = input()
-                answer = answer.lower()
-                if answer in ['y', 'yes', 'n', 'no']:
-                    break
-                print("Please input y or n.")
-            if answer in ['y', 'yes']:
-                Gamelogic.create(db)
-                print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
-            else:
-                print("")
-        if Gamelogic.potion_taken(db) == 0:
-            if Gamelogic.shaman_met(db) == 0:
-                wrap(
-                    "The shaman senses you are not all there.  He wants you to bring him a pile of dank Suspicious Herbs. "
-                    "They should restore your memory when brewed into a potion.")
-                Gamelogic.meet_shaman(db)
-            else:
-                print("You should find the herbs to make the potion and restore your memories at the hill")
+    #if location == 4:
+    #    if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
+    #        print("Do you want to trade the herbs for the potion?(y/n)")
+    #        while True:
+    #            answer = input()
+    #            answer = answer.lower()
+    #            if answer in ['y', 'yes', 'n', 'no']:
+    #                break
+    #            print("Please input y or n.")
+    #        if answer in ['y', 'yes']:
+    #            Gamelogic.create(db)
+    #            print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
+    #        else:
+    #            print("")
+    #    if Gamelogic.potion_taken(db) == 0:
+    #        if Gamelogic.shaman_met(db) == 0:
+    #            wrap(
+    #                "The shaman senses you are not all there.  He wants you to bring him a pile of dank Suspicious Herbs. "
+    #                "They should restore your memory when brewed into a potion.")
+    #            Gamelogic.meet_shaman(db)
+    #        else:
+    #            print("You should find the herbs to make the potion and restore your memories at the hill")
 
     # Special event 2: Filling the water bottle
     if location == 7 and "Water" not in Gamelogic.cmd_inventory(db):
@@ -358,10 +358,17 @@ while ending == 0:
             herbs = False
             if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
                 herbs = True
-            dialog.talkShaman(herbs)
+            potion = dialog.talkShaman(herbs)
+            if potion:
+                Gamelogic.create(db)
             print("")
         elif object == "to trader" and Gamelogic.location(db) == 9:
-            dialog.talkTrader()
+            memorypotiondrank = False
+            if Gamelogic.potion_taken(db) == 1:
+                memorypotiondrank = True
+            mushroom = dialog.talkTrader(memorypotiondrank)
+            if mushroom:
+                Gamelogic.trade_mushroom(db)
             print("")
         else:
             print("You talk gibberish.\n")

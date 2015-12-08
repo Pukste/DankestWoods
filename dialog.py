@@ -5,11 +5,12 @@ def wrap(text):
     print(textwrap.fill(text, 80))
 
 def talkShaman(herbs):
-    potion = 0
-    if herbs:
+    potion = False
+
+    wrap("Shaman: \"Hello stranger.\"")
+    if not herbs:
         while True:
             while True:
-                wrap("Shaman: \"Hello stranger.\"")
                 wrap("a) Who are you?")
                 wrap("b) Do you know who I am?")
                 wrap("q) I should go now.")
@@ -29,7 +30,6 @@ def talkShaman(herbs):
     else:
         while True:
             while True:
-                wrap("Shaman: \"Hello stranger.\"")
                 wrap("a) Who are you?")
                 wrap("b) Do you know who I am?")
                 wrap("c) I have some herbs.")
@@ -47,22 +47,26 @@ def talkShaman(herbs):
             if answer == 'c':
                 wrap("Shaman: \"Here is a potion made from the herbs\"")
                 print("")
-                potion = 1
+                potion = True
             if answer in ['q', 'quit']:
                 break
-        if
-        return potion
+    return potion
 
-def talkTrader():
+def talkTrader(memorypotiondrank):
+    mushroom = False
     while True:
         while True:
             wrap("Mushroom trader: \"Hello. Do you want to trade with me?\"")
             wrap("a) Yes.")
             wrap("b) No.")
+            if memorypotiondrank:
+                wrap("c) No. But do you know the wizard living in the castle?")
             wrap("q) I should go now.")
             answer = input()
             answer = answer.lower()
             if answer in ['a', 'b', 'q', 'quit']:
+                break
+            if memorypotiondrank and answer == "c":
                 break
         if answer == 'a':
             wrap("Mushroom trader: \"Too bad I don't have anything to trade.\"")
@@ -70,8 +74,13 @@ def talkTrader():
         if answer == 'b':
             wrap("Mushroom trader: \"Well. Let's trade some other time then.\"")
             print("")
+        if answer == 'c':
+            wrap("Mushroom trader: \"Yes. I hate him for turning my goods into mud. Do you want some magic mushrooms?\"")
+            print("")
+            mushroom = True
         if answer in ['q', 'quit']:
             break
+    return mushroom
 
 def toimiiko():
     conta = 0

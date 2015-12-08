@@ -62,7 +62,7 @@ insert into item values
 (2, "The Sword of All Things Left", "It's really just the same sword turned around. Way to go Einstein.", null, null),
 (3, "Suspicious Herbs", "A stack of pointy leaves.", 6, null),
 (4, "Wooden Tap", "It's a tap, it goes into holes tightly. Not to be used on living things.", null, null),
-(5, "Magic Mushroom", "You feel nauseous even holding it. It would be an awful idea to try to make anything out of this, so don't.",9, null),
+(5, "Magic Mushroom", "You feel nauseous even holding it. It would be an awful idea to try to make anything out of this, so don't.",null, null),
 (6, "Empty Vial","It's an empty glass vial. Things go in it.", null, 1),
 (7, "Vial of Water","It's a vial of water. Contained in the vial like logic would dictate.", null, null),
 (8, "Banana", "It's a banana, the king of fruits.", 5, null),
