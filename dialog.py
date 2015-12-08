@@ -52,6 +52,35 @@ def talkShaman(herbs):
                 break
     return potion
 
+def talkBarkeeper(banana):
+    tap = False
+
+    wrap("Barkeeper: \"Hello. Do you have banana. I could trade one for a wooden tap.\"")
+    while True:
+        while True:
+            wrap("a) No.")
+            if banana:
+                wrap("b) Yes.")
+            wrap("q) I should go now")
+            answer = input()
+            answer = answer.lower()
+            if answer in ['a', 'q', 'quit']:
+                break
+            if banana and answer == 'b':
+                break
+        if answer == 'a':
+            wrap("Too bad. I need one.")
+            print("")
+            break
+        if answer == 'b':
+            wrap("Thank you! Here is your wooden tap.")
+            print("")
+            tap = True
+            break
+        if answer in ['q', 'quit']:
+            break
+    return tap
+
 def talkTrader(memorypotiondrank):
     mushroom = False
     while True:

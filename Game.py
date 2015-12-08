@@ -127,29 +127,29 @@ while ending == 0:
                 "Maybe someone in the tavern will have something to fix it.")
 
     # Special event 4: Trading for the wooden tap
-    if location == 3:
-        if "Wooden Tap" in Gamelogic.cmd_inventory(db):
-            print("")
-        else:
-            if "Banana" in Gamelogic.cmd_inventory(db):
-                print("Do you want to trade the banana for a wooden tap?(y/n)")
-                while True:
-                    answer = input()
-                    answer = answer.lower()
-                    if answer in ['y', 'yes', 'n', 'no']:
-                        break
-                    print("Please input y or n.")
-                if answer in ['y', 'yes']:
-                    Gamelogic.trade(db)
-                    print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
-                else:
-                    print("")
-            else:
-                print("There is a sign that says 'Wooden taps for sale: Price 1 banana.'")
-                if Gamelogic.hill_visited(db) == 0:
-                    print("Where on earth are you going to find a banana.")
-                else:
-                    print("There may have been a banana tree on a hill somewhere.")
+    #if location == 3:
+    #    if "Wooden Tap" in Gamelogic.cmd_inventory(db):
+    #        print("")
+    #    else:
+    #        if "Banana" in Gamelogic.cmd_inventory(db):
+    #            print("Do you want to trade the banana for a wooden tap?(y/n)")
+    #            while True:
+    #                answer = input()
+    #                answer = answer.lower()
+    #                if answer in ['y', 'yes', 'n', 'no']:
+    #                    break
+    #                print("Please input y or n.")
+    #            if answer in ['y', 'yes']:
+    #                Gamelogic.trade(db)
+    #                print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
+    #            else:
+    #                print("")
+    #        else:
+    #            print("There is a sign that says 'Wooden taps for sale: Price 1 banana.'")
+    #            if Gamelogic.hill_visited(db) == 0:
+    #                print("Where on earth are you going to find a banana.")
+    #            else:
+    #                print("There may have been a banana tree on a hill somewhere.")
 
     # Special event 5: Entering the castle
     if location == 8 and Gamelogic.door_opened(db) == 0:
@@ -373,6 +373,13 @@ while ending == 0:
             if potion:
                 Gamelogic.create(db)
             print("")
+        elif object == "to barkeeper" and Gamelogic.location(db) == 3:
+            banana = False
+            if "Banana" in Gamelogic.cmd_inventory(db):
+                banana = True
+            tap = dialog.talkBarkeeper(banana)
+            if tap:
+                Gamelogic.trade(db)
         elif object == "to trader" and Gamelogic.location(db) == 9:
             memorypotiondrank = False
             if Gamelogic.potion_taken(db) == 1:
