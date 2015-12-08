@@ -206,7 +206,8 @@ while ending == 0:
                 if answer1 in ['y', 'yes']:
                     wrap("The wizard walks into the room, pours a drink and takes a sip."
                          " A while passes and the wizard seems to feel ill.")
-                    wrap("He starts panicking and is visibly confused, he has no idea what is wrong and is helplessly trying to find answers in his spell book."
+                    wrap("He starts panicking and is visibly confused, he has no idea what is wrong and"
+                         "is helplessly trying to find answers in his spell book."
                          "But it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
                 else:
@@ -214,7 +215,8 @@ while ending == 0:
                          "he blasts you with some kind of ghastly arcane energy and you transform into solid rock. "
                          "Seems like the wizard has a new statue. After a smug smile he pours a drink and drinks it. "
                          "A while passes and the wizard seems to feel ill."
-                         "He starts panicking and is visibly confused, he has no idea what is wrong and is helplessly trying to find answers in his spell "
+                         "He starts panicking and is visibly confused, he has no idea what is wrong "
+                         "and is helplessly trying to find answers in his spell "
                          "book. But it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
 
