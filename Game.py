@@ -392,8 +392,8 @@ while ending == 0:
             print("Potion of Endless Memory removed from inventory.")
         elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Potion of Transformation removed from inventory.")
-            wrap("You start feeling ill and pass out. You wake up feeling teRIBBITle. "
-                 "You have no idea what is going on. RIBBIT!  And then you realise, you've turned... "
+            wrap("You start feeling ill and you pass out. You wake up feeling teRIBBITle. "
+                 "You have no idea what is going on. RIBBIT!  And then you realize, you've turned... "
                  "...into a frog. RIBBIT!")
             ending = 1
         else:
@@ -429,4 +429,4 @@ while ending == 0:
     else:
         print("Invalid command...")
 
-input("The game has ended. Thank you for playing! Press enter to end the game")
+input("The game has ended. Thank you for playing! Press enter to end the game.")
