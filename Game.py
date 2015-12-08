@@ -210,11 +210,11 @@ while ending == 0:
                          "But it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
                 else:
-                    wrap("The wizard walks into the room instantly spotting you. After a short consideration"
-                         "he blasts you with some kind of weird arcane energy and you transform into solid rock. "
+                    wrap("The wizard walks into the room instantly spotting you. After hasty consideration"
+                         "he blasts you with some kind of ghastly arcane energy and you transform into solid rock. "
                          "Seems like the wizard has a new statue. After a smug smile he pours a drink and drinks it. "
                          "A while passes and the wizard seems to feel ill."
-                         "He doesn't know what is wrong and is helplessly trying to find answers in his spell "
+                         "He starts panicking and is visibly confused, he has no idea what is wrong and is helplessly trying to find answers in his spell "
                          "book. But it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
 
@@ -227,21 +227,21 @@ while ending == 0:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
-                    wrap("The wizard walks in and after a short while drinks his wine and goes to bed."
+                    wrap("The wizard walks in and after a little while drinks his wine and goes to bed."
                          "You hide the whole night and once the wizard leaves you slowly sneak out of the castle"
                          "and go into hiding hoping the wizard doesn't find you.")
                     ending = 1
                 else:
                     wrap(
-                        "The wizard walks into the room instantly spotting you. After a short consideration he blasts"
-                        "you with some kind of weird arcane energy and you transform into solid rock. "
-                        "Seems like the wizard has a new statue.")
+                        "The wizard walks into the room instantly spotting you. After hasty consideration he blasts"
+                        "you with some kind of ghastly arcane energy and you transform into solid rock. "
+                        "It seems like the wizard has a new statue.")
                     ending = 1
 
         else:
             if Gamelogic.castle_entered(db) == 1:
                 wrap(
-                    "After walking a while in the castle you find a room with a spell book."
+                    "After walking for a while in the castle you find a room with a spell book in plain sight."
                     " Seems like the wizard has carelessly left it open.")
                 print("Read the book?(y/n)")
                 while True:
@@ -253,10 +253,10 @@ while ending == 0:
                 if answer in ['y', 'yes']:
                     print(
                         "\nPotion of Transformation:\n\n1 Magic Mushroom\n1 litre of water\nAlchemist Table\nAdd"
-                        "water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait till"
+                        "water into the mixer\nLight a fire under the mixer\nAdd blue powder\nWait until"
                         " water turns clear\nSlice and add the mushroom\nWait 1 minute\nPour "
                         "the mixture into a bottle\n\nHmm.. Seems like everything but "
-                        "the mushroom and water is here.\nWonder if this would work.")
+                        "the mushroom and a litre of water are here.\nI wonder if this would actually work.")
                 else:
                     print("")
             elif "Magic_Mushroom" and "Water" in Gamelogic.cmd_inventory(db):
@@ -276,7 +276,7 @@ while ending == 0:
                     print("")
 
             else:
-                print("Need to find the Magic Mushroom and water to create the potion.")
+                print("Need to find the Magic Mushroom and some water to create the potion.")
 
     # Input and parsing
     print("")
