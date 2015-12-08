@@ -181,8 +181,8 @@ while ending == 0:
             else:
                 print("")
         else:
-            wrap("There must be something that fits into it.\nIt looks like a"
-                 "weird looking sword, but you have nothing like it with you.")
+            wrap("There must be something that fits into it.\nIt's shaped like a"
+                 "weird looking sword, but you no such thing with you.")
 
     # Special event 6: Game ending and creation of the Potion of Transformation
     if location == 10:
@@ -204,9 +204,9 @@ while ending == 0:
                         break
                     print("Please input y or n.")
                 if answer1 in ['y', 'yes']:
-                    wrap("The wizard walks into the room, pours a drink and drinks it."
+                    wrap("The wizard walks into the room, pours a drink and takes a sip."
                          " A while passes and the wizard seems to feel ill.")
-                    wrap("He doesn't know what is wrong and is helplessly trying to find answers in his spell book."
+                    wrap("He starts panicking and is visibly confused, he has no idea what is wrong and is helplessly trying to find answers in his spell book."
                          "But it is simply too late and he is suddenly transformed into a frog.")
                     ending = 1
                 else:
