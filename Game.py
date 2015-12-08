@@ -164,7 +164,7 @@ while ending == 0:
                     break
                 print("Please input y or n.")
             if answer in ['y', 'yes']:
-                print("Strangely your sword doesn't fit into the slot.")
+                print("Strangely your sword doesn't fit.")
         elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
             print("Insert your sword into the slot?(y/n)")
             while True:
