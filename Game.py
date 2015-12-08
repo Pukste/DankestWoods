@@ -298,7 +298,6 @@ while ending == 0:
     else:
         verb = cmd_list[0]
         object = ' '.join(cmd_list[1:len(cmd_list)])
-        # print("Please input one or two words only.")
 
     # Command: move
     if verb in ['go', 'move', 'm', 'g']:
