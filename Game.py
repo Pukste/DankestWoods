@@ -182,7 +182,7 @@ while ending == 0:
                 print("")
         else:
             wrap("There must be something that fits into it.\nIt's shaped like a"
-                 "weird looking sword, but you no such thing with you.")
+                 "weird looking sword, but you have no such thing with you.")
 
     # Special event 6: Game ending and creation of the Potion of Transformation
     if location == 10:
