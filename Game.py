@@ -126,66 +126,7 @@ while ending == 0:
                 "You require a boat to cross the river, but the one on the shore has a hole in it."
                 "Maybe someone in the tavern will have something to fix it.")
 
-    # Special event 4: Trading for the wooden tap
-    #if location == 3:
-    #    if "Wooden Tap" in Gamelogic.cmd_inventory(db):
-    #        print("")
-    #    else:
-    #        if "Banana" in Gamelogic.cmd_inventory(db):
-    #            print("Do you want to trade the banana for a wooden tap?(y/n)")
-    #            while True:
-    #                answer = input()
-    #                answer = answer.lower()
-    #                if answer in ['y', 'yes', 'n', 'no']:
-    #                    break
-    #                print("Please input y or n.")
-    #            if answer in ['y', 'yes']:
-    #                Gamelogic.trade(db)
-    #                print("Banana removed from inventory.\n1 Wooden Tap added to inventory.")
-    #            else:
-    #                print("")
-    #        else:
-    #            print("There is a sign that says 'Wooden taps for sale: Price 1 banana.'")
-    #            if Gamelogic.hill_visited(db) == 0:
-    #                print("Where on earth are you going to find a banana.")
-    #            else:
-    #                print("There may have been a banana tree on a hill somewhere.")
-
-    # Special event 5: Entering the castle
-    #if location == 8 and Gamelogic.door_opened(db) == 0:
-    #    print("There is a weird looking slot in the door.")
-    #    if "The Sword of All Things Right" in Gamelogic.cmd_inventory(db):
-    #        print("There is a slot in the castle door.\nYour sword looks like it could fit, "
-    #              "Do you wish to try inserting it into the slot?(y/n)")
-    #        while True:
-    #            answer = input()
-    #            answer = answer.lower()
-    #            if answer in ['y', 'yes', 'n', 'no']:
-    #                break
-    #            print("Please input y or n.")
-    #        if answer in ['y', 'yes']:
-    #            print(
-    #                "Strangely your sword doesn't seem to fit at all.\nRidicilous.\nWhy would this thing not fit into this marvelously left aligned slot.")
-    #    elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
-    #        print("Insert your sword into the slot?(y/n)")
-    #        while True:
-    #            answer = input()
-    #            answer = answer.lower()
-    #            if answer in ['y', 'yes', 'n', 'no']:
-    #                break
-    #            print("Please input y or n.")
-    #        if answer in ['y', 'yes']:
-    #            Gamelogic.open_direction(db, 8, 10, "south")
-    #            Gamelogic.open_direction(db, 10, 8, "north")
-    #            Gamelogic.door_opened(db)
-    #            print("Door unlocked. Wasn't that hard now was it.")
-    #        else:
-    #            print("")
-    #    else:
-    #        wrap("There must be something that fits into it.\nIt's shaped like a"
-    #             "weird looking sword, but you have no such thing with you.")
-
-    # Special event 6: Game ending and creation of the Potion of Transformation
+    # Special event 4: Game ending and creation of the Potion of Transformation
     if location == 10:
         if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Do you want to pour the potion into the wizards wine bottle?(y/n)")
@@ -430,7 +371,8 @@ while ending == 0:
                             break
                         print("Please input y or n.")
                     if answer in ['y', 'yes']:
-                        print("Strangely your sword doesn't seem to fit at all.\nRidicilous.\nWhy would this thing not fit into this marvelously left aligned slot.")
+                        print(
+                            "Strangely your sword doesn't seem to fit at all.\nRidicilous.\nWhy would this thing not fit into this marvelously left aligned slot.")
                 elif "The Sword of All Things Left" in Gamelogic.cmd_inventory(db):
                     print("Insert your sword into the slot?(y/n)")
                     while True:
