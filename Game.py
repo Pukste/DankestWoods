@@ -44,12 +44,16 @@ def wrap(text):
 # Possible ASCII here if can be arsed.
 # Start message
 wrap("Starting text etc.. here(won't be in the loop, hence shown only once at the start of the game)")
+input("")
+print("Commands:\n(M)ove/(g)o (N)orth, (S)outh, (E)ast, (W)est\n(I)nventory (shows items you have)\n"
+      "(D)rop (item) Drops a specific item\n(P)ick (item) Picks up an item\n(Ins)pect (item) Inspects an item\n"
+      "Drink (potion)\n(O)pen (door)\n(H)elp\n(R)otate (item)\n(E)nd (ends the game)")
 # Game start
-input("Start Game")
-
+input("\nStart Game")
+print("")
 ending = 0
 while ending == 0:
-
+    print("")
     # Get location and print area description
     location = Gamelogic.location(db)
     description = Gamelogic.description(db, location)
@@ -352,9 +356,9 @@ while ending == 0:
 
     # Command: help
     elif verb in ['help', 'h']:
-        print("Commands:\nMove () North, South, East, West\nInventory (shows items you have)\n"
-              "Drop (item) Drops a specific item\nPick (item) Picks up an item\nInspect (item) Inspects an item\n"
-              "Rotate (item)\nEnd (ends the game)")
+        print("Commands:\n(M)ove/(g)o (N)orth, (S)outh, (E)ast, (W)est\n(I)nventory (shows items you have)\n"
+              "(D)rop (item) Drops a specific item\n(P)ick (item) Picks up an item\n(Ins)pect (item) Inspects an item\n"
+              "Drink (potion)\n(O)pen (door)\n(R)otate (item)\n(E)nd (ends the game)")
     # Command: open door
     elif verb in ['open', 'o']:
         if object == "":
