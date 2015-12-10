@@ -420,4 +420,4 @@ while ending == 0:
     else:
         print("Invalid command...")
 
-input("The game has ended. Thank you for playing! Press enter to end the game.")
+input("Thank you for playing! Press enter to end the game.")
