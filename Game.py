@@ -43,7 +43,7 @@ def wrap(text):
 
 # Possible ASCII here if can be arsed.
 # Start message
-wrap("Starting text etc.. here(won't be in the loop, hence shown only once at the start of the game)")
+wrap("Welcome to Dankest woods! You have lost your memory and you have woke up in a forest.")
 input("")
 print("Commands:\n(M)ove/(g)o (N)orth, (S)outh, (E)ast, (W)est\n(I)nventory (shows items you have)\n"
       "(D)rop (item) Drops a specific item\n(P)ick (item) Picks up an item\n(Ins)pect (item) Inspects an item\n"
