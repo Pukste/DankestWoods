@@ -73,31 +73,7 @@ while ending == 0:
     if len(items) > 0:
         print("Items in the area:", items)
 
-    # Special event 1: Making and drinking the potion
-    # if location == 4:
-    #    if "Suspicious Herbs" in Gamelogic.cmd_inventory(db):
-    #        print("Do you want to trade the herbs for the potion?(y/n)")
-    #        while True:
-    #            answer = input()
-    #            answer = answer.lower()
-    #            if answer in ['y', 'yes', 'n', 'no']:
-    #                break
-    #            print("Please input y or n.")
-    #        if answer in ['y', 'yes']:
-    #            Gamelogic.create(db)
-    #            print("Suspicious Herbs removed from inventory.\nPotion of Endless Memory added to inventory.")
-    #        else:
-    #            print("")
-    #    if Gamelogic.potion_taken(db) == 0:
-    #        if Gamelogic.shaman_met(db) == 0:
-    #            wrap(
-    #                "The shaman senses you are not all there.  He wants you to bring him a pile of dank Suspicious Herbs. "
-    #                "They should restore your memory when brewed into a potion.")
-    #            Gamelogic.meet_shaman(db)
-    #        else:
-    #            print("You should find the herbs to make the potion and restore your memories at the hill")
-
-    # Special event 2: Filling the water bottle
+    # Special event 1: Filling the water bottle
     if location == 7 and "Water" not in Gamelogic.cmd_inventory(db):
         print("Do you want to fill your water bottle?(y/n)")
         answer = input()
@@ -112,7 +88,7 @@ while ending == 0:
     if location == 5 and Gamelogic.hill_visited(db) == 0:
         Gamelogic.visited_hill(db)
 
-    # Special event 3: Fixing the boat
+    # Special event 2: Fixing the boat
     if location == 7 and Gamelogic.boat_fixed(db) == 0:
         if "Wooden Tap" in Gamelogic.cmd_inventory(db):
             print("Do you want to fix the boat?(y/n)")
@@ -134,7 +110,7 @@ while ending == 0:
                 "You require a boat to cross the river, but the one on the shore has a hole in it."
                 "Maybe someone in the tavern will have something to fix it.")
 
-    # Special event 4: Game ending and creation of the Potion of Transformation
+    # Special event 3: Game ending and creation of the Potion of Transformation
     if location == 10:
         if "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Do you want to pour the potion into the wizards wine bottle?(y/n)")
