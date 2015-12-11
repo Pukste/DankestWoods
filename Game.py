@@ -43,7 +43,7 @@ def wrap(text):
 
 # Possible ASCII here if can be arsed.
 # Start message
-wrap("Starting text etc.. here(won't be in the loop, hence shown only once at the start of the game)")
+wrap("Welcome to Dankest woods! You have lost your memory and you have woke up in a forest.")
 input("")
 print("Commands:\n(M)ove/(g)o (N)orth, (S)outh, (E)ast, (W)est\n(I)nventory (shows items you have)\n"
       "(D)rop (item) Drops a specific item\n(P)ick (item) Picks up an item\n(Ins)pect (item) Inspects an item\n"
@@ -58,6 +58,12 @@ while ending == 0:
     location = Gamelogic.location(db)
     description = Gamelogic.description(db, location)
     wrap(description)
+    if location == 4:
+        print("There's a shaman. He looks like he has something to say.")
+    if location == 3:
+        print("There's a barkeeper. He looks like he has something to say.")
+    if location == 9:
+        print("There's a trader. He looks like he has something to say.")
 
     # Printing possible directions of movement
     direction = Gamelogic.direction(db, location)
@@ -345,6 +351,9 @@ while ending == 0:
         elif object == "potion of endless memory" and "Potion of Endless Memory" in Gamelogic.cmd_inventory(db):
             Gamelogic.take_potion(db)
             print("Potion of Endless Memory removed from inventory.")
+            wrap("You spasm violently as you remember the cranium splitting pain when the wizard burned the memories from your head."
+                 "You vividly remember the unfortunate encounter as you vow your revenge against the sinister master of arcane artistry."
+                 "It's time to find the tools for your devious scheming.")
         elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Potion of Transformation removed from inventory.")
             wrap("You start feeling ill and you pass out. You wake up feeling teRIBBITle. "

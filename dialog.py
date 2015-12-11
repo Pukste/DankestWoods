@@ -48,6 +48,7 @@ def talkShaman(herbs):
                 wrap("Shaman: \"Here is a potion made from the herbs\"")
                 print("")
                 potion = True
+                break
             if answer in ['q', 'quit']:
                 break
     return potion
@@ -107,6 +108,7 @@ def talkTrader(memorypotiondrank):
             wrap("Mushroom trader: \"Yes. I hate him for turning my goods into mud. Here is some magic mushroom.\"")
             print("")
             mushroom = True
+            break
         if answer in ['q', 'quit']:
             break
     return mushroom
