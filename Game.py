@@ -8,17 +8,15 @@
 
 import Gamelogic
 import dialog
-# import getpass , not working in pycharm
+import getpass
 import textwrap
 
 #
 # Creating connection to database.
 #
-# host = input("Server: ")
-# user = input("User: ")
-host = 'localhost'
-user = 'root'
-pswd = input("Password: ")
+host = input("Server: ")
+user = input("User: ")
+pswd = getpass.getpass("Password: ")
 db = Gamelogic.open_database(host, user, pswd)
 
 
