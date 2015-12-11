@@ -315,7 +315,7 @@ while ending == 0:
             print(object, "dropped.")
 
     # Command: talk
-    elif verb in ["talk", "speak"]:
+    elif verb in ["talk", "speak", "t", "s"]:
         if object == "":
             print("You talk to yourself.\n")
         elif object == "to shaman" and Gamelogic.location(db) == 4:
@@ -367,7 +367,8 @@ while ending == 0:
     elif verb in ['help', 'h']:
         print("Commands:\n(M)ove/(g)o (N)orth, (S)outh, (E)ast, (W)est\n(I)nventory (shows items you have)\n"
               "(D)rop (item) Drops a specific item\n(P)ick (item) Picks up an item\n(Ins)pect (item) Inspects an item\n"
-              "Drink (potion)\n(O)pen (door)\n(R)otate (item)\n(E)nd (ends the game)")
+              "Drink (potion)\n(O)pen (door)\n(R)otate (item)\n(T)alk (to someone)\n(E)nd (ends the game)")
+
     # Command: open door
     elif verb in ['open', 'o']:
         if object == "":
