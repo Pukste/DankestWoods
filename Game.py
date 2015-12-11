@@ -47,7 +47,7 @@ wrap("Welcome to the Dankest woods! You have lost your memory and woken up in a 
 input("")
 print("Commands:\n(M)ove/(g)o (N)orth, (S)outh, (E)ast, (W)est\n(I)nventory (shows items you have)\n"
       "(D)rop (item) Drops a specific item\n(P)ick (item) Picks up an item\n(Ins)pect (item) Inspects an item\n"
-      "Drink (potion)\n(O)pen (door)\n(H)elp\n(R)otate (item)\n(E)nd (ends the game)")
+      "Drink (potion)\n(O)pen (door)\n(H)elp\n(R)otate (item)\n(T)alk (to someone)\n(E)nd (ends the game)")
 # Game start
 input("\nStart Game")
 print("")
