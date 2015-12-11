@@ -58,6 +58,12 @@ while ending == 0:
     location = Gamelogic.location(db)
     description = Gamelogic.description(db, location)
     wrap(description)
+    if location == 4:
+        print("There's a shaman. He looks like he has something to say.")
+    if location == 3:
+        print("There's a barkeeper. He looks like he has something to say.")
+    if location == 9:
+        print("There's a trader. He looks like he has something to say.")
 
     # Printing possible directions of movement
     direction = Gamelogic.direction(db, location)
