@@ -51,7 +51,7 @@ insert into location values
 (6, "Woods 2", "The tall trees continue endlessly. There are peculiarly shaped plants growing alongside surfaced tree roots.", null, 7, null, 1),
 (7, "River", "It's a wide river, it doesn't look like you will be able to swim across it.", 6, null, null, null),
 (8, "Village", "Lots of small houses. It's a village, not exactly brimming with life, but it's something.", null, null, null, 9),
-(9, "Marketplace", "A few stalls can be seen from the distance neatly lined up. Walking forward a peculiar sweet scent of grass and other plant life is in the air, there must be a ", null, null, 8, null),
+(9, "Marketplace", "A few stalls can be seen from the distance neatly lined up. Walking forward a peculiar sweet scent of grass and other musky plant life is in the air, there must be a stall nearby with mushrooms on it.", null, null, 8, null),
 (10, "Castle", "It's a large castle, made of stone as castles tend to be.", null, null, null, null);
 
 insert into player values
