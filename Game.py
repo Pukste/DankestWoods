@@ -346,7 +346,8 @@ while ending == 0:
             Gamelogic.take_potion(db)
             print("Potion of Endless Memory removed from inventory.")
             wrap("You spasm violently as you remember the cranium splitting pain when the wizard burned the memories from your head."
-                 "You vividly remember the unfortunate encounter as you vow your revenge against the sinister master of arcane artistry.")
+                 "You vividly remember the unfortunate encounter as you vow your revenge against the sinister master of arcane artistry."
+                 "It's time to find the tools for your devious scheming.")
         elif object == "potion of transformation" and "Potion of Transformation" in Gamelogic.cmd_inventory(db):
             print("Potion of Transformation removed from inventory.")
             wrap("You start feeling ill and you pass out. You wake up feeling teRIBBITle. "
