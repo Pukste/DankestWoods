@@ -58,6 +58,7 @@ while ending == 0:
     location = Gamelogic.location(db)
     description = Gamelogic.description(db, location)
     wrap(description)
+    #Lazy solution for informing the player of characters you can talk to, too much of a hassle to construct a more complex comparison
     if location == 4:
         print("There's a shaman. He looks like he has something to say.")
     if location == 3:
