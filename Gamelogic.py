@@ -167,7 +167,7 @@ def object_location(db, item):
 
 
 #
-#
+# Function: opens a direction of travel
 #
 def open_direction(db, leave, go, direction):
     cur = db.cursor()
